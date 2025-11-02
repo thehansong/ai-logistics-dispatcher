@@ -16,6 +16,9 @@ class Config:
         # LLM Provider - can be "anthropic", "openai", or "azure_openai"
         self.llm_provider = os.getenv("LLM_PROVIDER", "anthropic")
 
+        # Prompt Strategy - can be "conservative" or "aggressive"
+        self.prompt_strategy = os.getenv("PROMPT_STRATEGY", "conservative").lower()
+
         # API Keys (loaded from environment variables)
         self.anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -81,9 +84,22 @@ class Config:
         else:
             raise ValueError(f"Unknown LLM provider: {self.llm_provider}")
 
+    def get_allocation_prompt(self) -> str:
+        """Get the allocation system prompt based on strategy"""
+        if self.prompt_strategy == "aggressive":
+            return ALLOCATION_SYSTEM_PROMPT_AGGRESSIVE
+        elif self.prompt_strategy == "conservative":
+            return ALLOCATION_SYSTEM_PROMPT_CONSERVATIVE
+        else:
+            # Default to conservative for unknown strategies
+            print(f"⚠️  Unknown prompt strategy '{self.prompt_strategy}', defaulting to conservative")
+            return ALLOCATION_SYSTEM_PROMPT_CONSERVATIVE
+
 
 # System prompts for different allocation stages
-ALLOCATION_SYSTEM_PROMPT = """You are an expert logistics coordinator for a catering company in Singapore.
+
+# CONSERVATIVE PROMPT (Original - more cautious, quality-focused)
+ALLOCATION_SYSTEM_PROMPT_CONSERVATIVE = """You are an expert logistics coordinator for a catering company in Singapore.
 Your task is to intelligently assign catering orders to delivery specialists based on multiple constraints.
 
 Key constraints to consider:
@@ -101,6 +117,36 @@ Your decisions should:
 - Be practical and realistic for an operations team
 
 Output your allocations in structured JSON format."""
+
+# AGGRESSIVE PROMPT (New - maximizes allocation rate, throughput-focused)
+ALLOCATION_SYSTEM_PROMPT_AGGRESSIVE = """You are an expert logistics optimizer for a high-volume catering company in Singapore.
+Your PRIMARY GOAL is to MAXIMIZE the number of orders allocated. Every unallocated order is lost revenue.
+
+CRITICAL MISSION: Allocate ALL orders if at all possible. Push the boundaries of what's feasible.
+
+HARD CONSTRAINTS (must follow):
+1. Driver capabilities: Wedding-tagged orders MUST go to drivers with "wedding" capability
+2. Driver capacity: Cannot exceed max_orders_per_day limit
+3. Time conflicts: Orders cannot overlap (pickup to teardown windows)
+
+SOFT CONSTRAINTS (optimize but can compromise):
+4. Regional preference: Try to match preferred regions but cross-region is acceptable
+5. Clustering: Nice to have but not required if it prevents allocations
+
+ALLOCATION STRATEGY:
+- ALLOCATE FIRST, optimize second
+- If a driver has capacity and capability, USE THEM
+- Don't leave drivers idle if there are compatible orders
+- Accept cross-region assignments to maximize throughput
+- Tight time windows are OK as long as no overlap
+- Every order should have a driver unless truly impossible
+
+MINDSET: "How can I make this work?" not "Why won't this work?"
+
+Output MAXIMUM allocations in structured JSON format. Aim for 100% allocation rate."""
+
+# Default to conservative for safety
+ALLOCATION_SYSTEM_PROMPT = ALLOCATION_SYSTEM_PROMPT_CONSERVATIVE
 
 
 CONFLICT_RESOLUTION_PROMPT = """You are analyzing unallocated orders and allocation conflicts.

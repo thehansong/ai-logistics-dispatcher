@@ -115,19 +115,18 @@ def has_required_capabilities(driver: Dict, order: Dict) -> bool:
     order_tags = order.get("tags", [])
     driver_capabilities = driver.get("capabilities", [])
 
-    # Check for special requirements
-    if "wedding" in order_tags or "vip" in order_tags:
-        # Need wedding capability for wedding orders
-        if "wedding" in order_tags and "wedding" not in driver_capabilities:
-            return False
-        # VIP orders should have VIP-capable drivers (preferred but not hard requirement)
-        if "vip" in order_tags and "vip" not in driver_capabilities:
-            return False
+    # Check each tag requirement independently
+    # Wedding orders need wedding capability
+    if "wedding" in order_tags and "wedding" not in driver_capabilities:
+        return False
 
-    if "corporate" in order_tags:
-        # Corporate events prefer corporate-experienced drivers
-        if "corporate" not in driver_capabilities:
-            return False
+    # VIP orders need VIP capability
+    if "vip" in order_tags and "vip" not in driver_capabilities:
+        return False
+
+    # Corporate orders need corporate capability
+    if "corporate" in order_tags and "corporate" not in driver_capabilities:
+        return False
 
     return True
 
@@ -138,11 +137,12 @@ def get_order_priority(order: Dict) -> int:
 
     Priority levels:
     1. VIP + Wedding (highest)
-    2. VIP only
-    3. Wedding only
-    4. Corporate with early_setup
-    5. Corporate
-    6. Regular orders (lowest)
+    2. VIP + Corporate
+    3. VIP only
+    4. Wedding only
+    5. Corporate with early_setup
+    6. Corporate
+    7. Regular orders (lowest)
 
     Args:
         order: Order dictionary
@@ -154,6 +154,8 @@ def get_order_priority(order: Dict) -> int:
 
     if "vip" in tags and "wedding" in tags:
         return 100
+    elif "vip" in tags and "corporate" in tags:
+        return 95  # VIP corporate events (high priority)
     elif "vip" in tags:
         return 90
     elif "wedding" in tags:
@@ -178,6 +180,7 @@ def categorize_orders_by_priority(orders: List[Dict]) -> Dict[str, List[Dict]]:
     """
     categories = {
         "vip_wedding": [],
+        "vip_corporate": [],  # New category for VIP corporate events
         "vip": [],
         "wedding": [],
         "corporate": [],
@@ -187,10 +190,13 @@ def categorize_orders_by_priority(orders: List[Dict]) -> Dict[str, List[Dict]]:
     for order in orders:
         tags = order.get("tags", [])
 
+        # Check for VIP combinations first (most specific)
         if "vip" in tags and "wedding" in tags:
             categories["vip_wedding"].append(order)
+        elif "vip" in tags and "corporate" in tags:
+            categories["vip_corporate"].append(order)  # VIP corporate events
         elif "vip" in tags:
-            categories["vip"].append(order)
+            categories["vip"].append(order)  # VIP-only (defaults to wedding treatment)
         elif "wedding" in tags:
             categories["wedding"].append(order)
         elif "corporate" in tags:

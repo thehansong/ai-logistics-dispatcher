@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b6f567e38aa5b576c51902bf487da233 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed;
+                    top: 10px; left: 50px; width: 400px; height: 90px;
+                    background-color: white; border:2px solid grey; z-index:9999;
+                    font-size:14px; padding: 10px">
+        <h4 style="margin: 0">Smart Delivery Allocator</h4>
+        <p style="margin: 5px 0"><strong>Total Allocations:</strong> 20</p>
+        <p style="margin: 5px 0"><strong>Drivers Used:</strong> 15</p>
+        <p style="margin: 5px 0"><strong>Unallocated:</strong> 10</p>
+        </div>
+        
+    
+        <div style="position: fixed;
+                    bottom: 50px; right: 50px; width: 200px;
+                    background-color: white; border:2px solid grey; z-index:9999;
+                    font-size:12px; padding: 10px">
+        <h4 style="margin: 0 0 10px 0">Legend</h4>
+        <p style="margin: 3px 0">
+            <i class="fa fa-star" style="color: black"></i> VIP Orders
+        </p>
+        <p style="margin: 3px 0">
+            <i class="fa fa-cutlery" style="color: black"></i> Regular Orders
+        </p>
+        <p style="margin: 3px 0">
+            <i class="fa fa-exclamation-triangle" style="color: red"></i> Unallocated
+        </p>
+        <hr style="margin: 10px 0">
+        <p style="margin: 3px 0; font-size: 11px">
+            <strong>Tip:</strong> Click markers for details.<br>
+            Use layer control (top right) to filter drivers.
+        </p>
+        </div>
+        
+    
+            <div class="folium-map" id="map_b6f567e38aa5b576c51902bf487da233" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b6f567e38aa5b576c51902bf487da233 = L.map(
+                "map_b6f567e38aa5b576c51902bf487da233",
+                {
+                    center: [1.3521, 103.8198],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d113b12be431efcb284ced2562704b4d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d113b12be431efcb284ced2562704b4d.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_792a21830d87fd1f6dc33eda3d1d7109 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_792a21830d87fd1f6dc33eda3d1d7109.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_f68dd9847f809b99439b4a227f6b430a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_f68dd9847f809b99439b4a227f6b430a.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_b84713cae1de48ceee06160d4f9b73ee = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_b84713cae1de48ceee06160d4f9b73ee.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_d6378acaa6e341ed94a7efb8b70d7c42 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_d6378acaa6e341ed94a7efb8b70d7c42.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_8ea9d211384e06223827065603df47d9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_8ea9d211384e06223827065603df47d9.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_f198ae53864068fde6044cc67966fb4c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_f198ae53864068fde6044cc67966fb4c.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_b7e9d2da1d1ff0c65108370e3e688a94 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_b7e9d2da1d1ff0c65108370e3e688a94.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_2b797d63e044257e92879fc1111b498a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_2b797d63e044257e92879fc1111b498a.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_466960b530e20349161cf35d723b4a88 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_466960b530e20349161cf35d723b4a88.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_88f11a145c11eff393d841853e649057 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_88f11a145c11eff393d841853e649057.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_a1ce996608f74a6a97d47cad10cf85cd = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_a1ce996608f74a6a97d47cad10cf85cd.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_6d0c1388f25cadc26ead08430b8de8f9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_6d0c1388f25cadc26ead08430b8de8f9.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_ba13df2f0083a1d5339741e5959c9ba3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_ba13df2f0083a1d5339741e5959c9ba3.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_c2b1b35c1c22a3fc389e35d5c4c298d5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_c2b1b35c1c22a3fc389e35d5c4c298d5.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_7c494b1b6b1faf861e8316fc6b1b0f9b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_7c494b1b6b1faf861e8316fc6b1b0f9b.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var feature_group_ca654d7be1630bb1b11a1505a4bc28f7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_ca654d7be1630bb1b11a1505a4bc28f7.addTo(map_b6f567e38aa5b576c51902bf487da233);
+        
+    
+            var layer_control_4e25d9eb11a341071c6f31ac6a8fb134_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_d113b12be431efcb284ced2562704b4d,
+                },
+                overlays :  {
+                    "Alice Tan (TEST-DRV-001) - 2 orders" : feature_group_792a21830d87fd1f6dc33eda3d1d7109,
+                    "Emily Koh (TEST-DRV-005) - 2 orders" : feature_group_f68dd9847f809b99439b4a227f6b430a,
+                    "Grace Lee (TEST-DRV-007) - 2 orders" : feature_group_b84713cae1de48ceee06160d4f9b73ee,
+                    "Catherine Wong (TEST-DRV-003) - 2 orders" : feature_group_d6378acaa6e341ed94a7efb8b70d7c42,
+                    "Iris Chua (TEST-DRV-009) - 2 orders" : feature_group_8ea9d211384e06223827065603df47d9,
+                    "Daniel Teo (TEST-DRV-030) - 1 orders" : feature_group_f198ae53864068fde6044cc67966fb4c,
+                    "Chloe Lee (TEST-DRV-029) - 1 orders" : feature_group_b7e9d2da1d1ff0c65108370e3e688a94,
+                    "Amanda Koh (TEST-DRV-027) - 1 orders" : feature_group_2b797d63e044257e92879fc1111b498a,
+                    "Benjamin Chen (TEST-DRV-028) - 1 orders" : feature_group_466960b530e20349161cf35d723b4a88,
+                    "Zachary Ng (TEST-DRV-026) - 1 orders" : feature_group_88f11a145c11eff393d841853e649057,
+                    "Frank Chen (TEST-DRV-006) - 1 orders" : feature_group_a1ce996608f74a6a97d47cad10cf85cd,
+                    "Henry Teo (TEST-DRV-008) - 1 orders" : feature_group_6d0c1388f25cadc26ead08430b8de8f9,
+                    "David Ng (TEST-DRV-004) - 1 orders" : feature_group_ba13df2f0083a1d5339741e5959c9ba3,
+                    "Jack Yeo (TEST-DRV-010) - 1 orders" : feature_group_c2b1b35c1c22a3fc389e35d5c4c298d5,
+                    "Bob Lim (TEST-DRV-002) - 1 orders" : feature_group_7c494b1b6b1faf861e8316fc6b1b0f9b,
+                    "\u26a0\ufe0f Unallocated Orders (10)" : feature_group_ca654d7be1630bb1b11a1505a4bc28f7,
+                },
+            };
+            let layer_control_4e25d9eb11a341071c6f31ac6a8fb134 = L.control.layers(
+                layer_control_4e25d9eb11a341071c6f31ac6a8fb134_layers.base_layers,
+                layer_control_4e25d9eb11a341071c6f31ac6a8fb134_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_b6f567e38aa5b576c51902bf487da233);
+
+        
+</script>
+</html>

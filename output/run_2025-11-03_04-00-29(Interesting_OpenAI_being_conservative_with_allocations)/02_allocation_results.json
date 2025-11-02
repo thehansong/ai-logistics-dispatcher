@@ -41,7 +41,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Alice Tan is preferred for central region and has the capability for wedding orders. The orders do not overlap in time.",
+      "reasoning": "Alice Tan is preferred for central region and has the capability to handle VIP and wedding orders. Both orders are in her preferred region and do not overlap in time.",
       "utilization": 33.33333333333333
     },
     {
@@ -85,7 +85,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Emily Koh is preferred for south region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Emily Koh is preferred for the south region and has the capability to handle VIP and wedding orders. The order is in her preferred region and fits within her capacity.",
       "utilization": 33.33333333333333
     },
     {
@@ -129,7 +129,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Grace Lee is preferred for east region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Grace Lee is preferred for the east region and has the capability to handle VIP and wedding orders. The order is in her preferred region and fits within her capacity.",
       "utilization": 33.33333333333333
     },
     {
@@ -173,7 +173,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Catherine Wong is preferred for north region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Catherine Wong is preferred for the north region and has the capability to handle VIP and wedding orders. The order is in her preferred region and fits within her capacity.",
       "utilization": 33.33333333333333
     },
     {
@@ -217,38 +217,8 @@
           "tags": []
         }
       ],
-      "reasoning": "Iris Chua is preferred for west region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Iris Chua is preferred for the west region and has the capability to handle VIP and wedding orders. The order is in her preferred region and fits within her capacity.",
       "utilization": 33.33333333333333
-    },
-    {
-      "driver": {
-        "driver_id": "TEST-DRV-013",
-        "name": "Mary Goh",
-        "max_orders_per_day": 5,
-        "capabilities": [
-          "wedding",
-          "large_events"
-        ],
-        "preferred_region": "south"
-      },
-      "orders": [
-        {
-          "order_id": "TEST-012",
-          "venue_name": "Labrador Park Hall",
-          "address": "Labrador Villa Road",
-          "postal_code": "119187",
-          "region": "south",
-          "pax": 110,
-          "pickup_time": "2024-11-03T15:30:00",
-          "setup_time": "2024-11-03T16:30:00",
-          "teardown_time": "2024-11-03T20:30:00",
-          "tags": [
-            "wedding"
-          ]
-        }
-      ],
-      "reasoning": "Mary Goh is available with no current orders and has wedding capability. The order is in her preferred region (south).",
-      "utilization": 20.0
     },
     {
       "driver": {
@@ -276,7 +246,7 @@
           ]
         }
       ],
-      "reasoning": "Daniel Teo is preferred for the west region and has the capability to handle corporate orders. Both orders are in the west region and do not overlap in time.",
+      "reasoning": "Daniel Teo is assigned orders in the west region, which is his preferred region. Both orders do not overlap in time, and he has the capacity to handle both.",
       "utilization": 20.0
     },
     {
@@ -305,7 +275,7 @@
           ]
         }
       ],
-      "reasoning": "Chloe Lee is preferred for the east region and has the capability to handle corporate orders. The order is in the east region and fits within her schedule.",
+      "reasoning": "Chloe Lee is assigned the order in the east region, which is her preferred region. She has the capacity to handle this order.",
       "utilization": 20.0
     },
     {
@@ -334,7 +304,7 @@
           ]
         }
       ],
-      "reasoning": "Amanda Koh is preferred for the north region and has the capability to handle corporate orders. The order is in the north region and fits within her schedule.",
+      "reasoning": "Amanda Koh is assigned the order in the north region, which is her preferred region. She has the capacity to handle this order.",
       "utilization": 20.0
     },
     {
@@ -363,7 +333,7 @@
           ]
         }
       ],
-      "reasoning": "Benjamin Chen is preferred for the south region and has the capability to handle corporate orders. The order is in the south region and fits within his schedule.",
+      "reasoning": "Benjamin Chen is assigned the order in the south region, which is his preferred region. He has the capacity to handle this order.",
       "utilization": 20.0
     },
     {
@@ -392,70 +362,8 @@
           ]
         }
       ],
-      "reasoning": "Zachary Ng is preferred for the central region and has the capability to handle corporate orders. The order is in the central region and fits within his schedule.",
+      "reasoning": "Zachary Ng is assigned the order in the central region, which is his preferred region. He has the capacity to handle this order.",
       "utilization": 20.0
-    },
-    {
-      "driver": {
-        "driver_id": "TEST-DRV-002",
-        "name": "Bob Lim",
-        "max_orders_per_day": 6,
-        "capabilities": [
-          "vip",
-          "wedding",
-          "large_events"
-        ],
-        "preferred_region": "central"
-      },
-      "orders": [
-        {
-          "order_id": "TEST-011",
-          "venue_name": "Botanic Gardens Pavilion",
-          "address": "1 Cluny Road",
-          "postal_code": "259569",
-          "region": "central",
-          "pax": 100,
-          "pickup_time": "2024-11-03T15:00:00",
-          "setup_time": "2024-11-03T16:00:00",
-          "teardown_time": "2024-11-03T20:00:00",
-          "tags": [
-            "wedding"
-          ]
-        }
-      ],
-      "reasoning": "Bob Lim is available with no current orders and has wedding capability. The order is in his preferred region (central).",
-      "utilization": 16.666666666666664
-    },
-    {
-      "driver": {
-        "driver_id": "TEST-DRV-004",
-        "name": "David Ng",
-        "max_orders_per_day": 6,
-        "capabilities": [
-          "vip",
-          "wedding",
-          "large_events"
-        ],
-        "preferred_region": "north"
-      },
-      "orders": [
-        {
-          "order_id": "TEST-009",
-          "venue_name": "Sembawang Country Club",
-          "address": "17 Yishun Avenue 7",
-          "postal_code": "768924",
-          "region": "north",
-          "pax": 160,
-          "pickup_time": "2024-11-03T14:00:00",
-          "setup_time": "2024-11-03T15:00:00",
-          "teardown_time": "2024-11-03T19:00:00",
-          "tags": [
-            "wedding"
-          ]
-        }
-      ],
-      "reasoning": "David Ng is available with no current orders and has wedding capability. The order is in his preferred region (north).",
-      "utilization": 16.666666666666664
     },
     {
       "driver": {
@@ -471,21 +379,21 @@
       },
       "orders": [
         {
-          "order_id": "TEST-007",
-          "venue_name": "Southern Ridge Chapel",
-          "address": "Henderson Road",
-          "postal_code": "159557",
+          "order_id": "TEST-012",
+          "venue_name": "Labrador Park Hall",
+          "address": "Labrador Villa Road",
+          "postal_code": "119187",
           "region": "south",
-          "pax": 120,
-          "pickup_time": "2024-11-03T13:00:00",
-          "setup_time": "2024-11-03T14:00:00",
-          "teardown_time": "2024-11-03T18:00:00",
+          "pax": 110,
+          "pickup_time": "2024-11-03T15:30:00",
+          "setup_time": "2024-11-03T16:30:00",
+          "teardown_time": "2024-11-03T20:30:00",
           "tags": [
             "wedding"
           ]
         }
       ],
-      "reasoning": "Frank Chen is available with no current orders and has wedding capability. The order is in his preferred region (south).",
+      "reasoning": "Frank Chen is preferred for the south region and has wedding capability. He has full capacity available today.",
       "utilization": 16.666666666666664
     },
     {
@@ -516,7 +424,38 @@
           ]
         }
       ],
-      "reasoning": "Henry Teo is available with no current orders and has wedding capability. The order is in his preferred region (east).",
+      "reasoning": "Henry Teo is preferred for the east region and has wedding capability. He has full capacity available today.",
+      "utilization": 16.666666666666664
+    },
+    {
+      "driver": {
+        "driver_id": "TEST-DRV-004",
+        "name": "David Ng",
+        "max_orders_per_day": 6,
+        "capabilities": [
+          "vip",
+          "wedding",
+          "large_events"
+        ],
+        "preferred_region": "north"
+      },
+      "orders": [
+        {
+          "order_id": "TEST-009",
+          "venue_name": "Sembawang Country Club",
+          "address": "17 Yishun Avenue 7",
+          "postal_code": "768924",
+          "region": "north",
+          "pax": 160,
+          "pickup_time": "2024-11-03T14:00:00",
+          "setup_time": "2024-11-03T15:00:00",
+          "teardown_time": "2024-11-03T19:00:00",
+          "tags": [
+            "wedding"
+          ]
+        }
+      ],
+      "reasoning": "David Ng is preferred for the north region and has wedding capability. He has full capacity available today.",
       "utilization": 16.666666666666664
     },
     {
@@ -547,7 +486,38 @@
           ]
         }
       ],
-      "reasoning": "Jack Yeo is available with no current orders and has wedding capability. The order is in his preferred region (west).",
+      "reasoning": "Jack Yeo is preferred for the west region and has wedding capability. He has full capacity available today.",
+      "utilization": 16.666666666666664
+    },
+    {
+      "driver": {
+        "driver_id": "TEST-DRV-002",
+        "name": "Bob Lim",
+        "max_orders_per_day": 6,
+        "capabilities": [
+          "vip",
+          "wedding",
+          "large_events"
+        ],
+        "preferred_region": "central"
+      },
+      "orders": [
+        {
+          "order_id": "TEST-011",
+          "venue_name": "Botanic Gardens Pavilion",
+          "address": "1 Cluny Road",
+          "postal_code": "259569",
+          "region": "central",
+          "pax": 100,
+          "pickup_time": "2024-11-03T15:00:00",
+          "setup_time": "2024-11-03T16:00:00",
+          "teardown_time": "2024-11-03T20:00:00",
+          "tags": [
+            "wedding"
+          ]
+        }
+      ],
+      "reasoning": "Bob Lim is preferred for the central region and has wedding capability. He has full capacity available today.",
       "utilization": 16.666666666666664
     }
   ],
@@ -564,6 +534,21 @@
       "teardown_time": "2024-11-03T15:30:00",
       "tags": [
         "vip",
+        "wedding"
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
+    },
+    {
+      "order_id": "TEST-007",
+      "venue_name": "Southern Ridge Chapel",
+      "address": "Henderson Road",
+      "postal_code": "159557",
+      "region": "south",
+      "pax": 120,
+      "pickup_time": "2024-11-03T13:00:00",
+      "setup_time": "2024-11-03T14:00:00",
+      "teardown_time": "2024-11-03T18:00:00",
+      "tags": [
         "wedding"
       ],
       "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
@@ -698,7 +683,7 @@
   "metrics": {
     "total_orders": 30,
     "total_drivers": 50,
-    "wedding_orders": 12,
+    "wedding_orders": 18,
     "wedding_drivers": 25,
     "total_capacity": 250,
     "utilization_rate": 12.0,
@@ -723,19 +708,19 @@
     },
     "priority_distribution": {
       "vip_wedding": 6,
-      "vip": 0,
+      "vip": 6,
       "wedding": 6,
       "corporate": 6,
       "regular": 6
     },
-    "total_allocated": 21,
-    "total_unallocated": 9,
-    "allocation_rate": 70.0,
-    "total_drivers_used": 16,
-    "average_utilization": 23.124999999999996,
+    "total_allocated": 20,
+    "total_unallocated": 10,
+    "allocation_rate": 66.66666666666666,
+    "total_drivers_used": 15,
+    "average_utilization": 23.33333333333333,
     "regional_distribution": {
       "central": 4,
-      "south": 5,
+      "south": 4,
       "east": 4,
       "north": 4,
       "west": 4

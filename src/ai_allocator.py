@@ -5,7 +5,7 @@ AI-powered allocation engine using LLMs
 import json
 from typing import Dict, List, Any, Tuple
 from llm_client import LLMClient
-from config import Config, ALLOCATION_SYSTEM_PROMPT
+from config import Config
 from validator import AllocationValidator, validate_order_feasibility
 
 
@@ -56,61 +56,75 @@ class AIAllocator:
             allocated_order_ids.update(stage1_result["allocated_order_ids"])
             print(f"  ✓ Allocated {len(stage1_result['allocated_order_ids'])}/{len(vip_wedding_orders)} VIP wedding orders\n")
 
-        # Stage 2: Allocate remaining VIP orders
-        print("Stage 2: Allocating remaining VIP orders...")
+        # Stage 2: Allocate VIP + Corporate orders
+        print("Stage 2: Allocating VIP + Corporate orders...")
+        vip_corporate_orders = categorized_orders.get("vip_corporate", [])
+        if vip_corporate_orders:
+            stage2_result = self._allocate_priority_orders(
+                vip_corporate_orders,
+                categorized_drivers["corporate_capable"],
+                driver_assignments,
+                stage_name="VIP Corporate Orders"
+            )
+            allocations.extend(stage2_result["allocations"])
+            allocated_order_ids.update(stage2_result["allocated_order_ids"])
+            print(f"  ✓ Allocated {len(stage2_result['allocated_order_ids'])}/{len(vip_corporate_orders)} VIP corporate orders\n")
+
+        # Stage 3: Allocate remaining VIP orders
+        print("Stage 3: Allocating remaining VIP orders...")
         vip_orders = categorized_orders.get("vip", [])
         if vip_orders:
-            stage2_result = self._allocate_priority_orders(
+            stage3_result = self._allocate_priority_orders(
                 vip_orders,
                 categorized_drivers["wedding_capable"],
                 driver_assignments,
                 stage_name="VIP Orders"
             )
-            allocations.extend(stage2_result["allocations"])
-            allocated_order_ids.update(stage2_result["allocated_order_ids"])
-            print(f"  ✓ Allocated {len(stage2_result['allocated_order_ids'])}/{len(vip_orders)} VIP orders\n")
+            allocations.extend(stage3_result["allocations"])
+            allocated_order_ids.update(stage3_result["allocated_order_ids"])
+            print(f"  ✓ Allocated {len(stage3_result['allocated_order_ids'])}/{len(vip_orders)} VIP orders\n")
 
-        # Stage 3: Allocate remaining wedding orders
-        print("Stage 3: Allocating remaining wedding orders...")
+        # Stage 4: Allocate remaining wedding orders
+        print("Stage 4: Allocating remaining wedding orders...")
         wedding_orders = categorized_orders.get("wedding", [])
         if wedding_orders:
-            stage3_result = self._allocate_priority_orders(
+            stage4_result = self._allocate_priority_orders(
                 wedding_orders,
                 categorized_drivers["wedding_capable"],
                 driver_assignments,
                 stage_name="Wedding Orders"
             )
-            allocations.extend(stage3_result["allocations"])
-            allocated_order_ids.update(stage3_result["allocated_order_ids"])
-            print(f"  ✓ Allocated {len(stage3_result['allocated_order_ids'])}/{len(wedding_orders)} wedding orders\n")
+            allocations.extend(stage4_result["allocations"])
+            allocated_order_ids.update(stage4_result["allocated_order_ids"])
+            print(f"  ✓ Allocated {len(stage4_result['allocated_order_ids'])}/{len(wedding_orders)} wedding orders\n")
 
-        # Stage 4: Allocate corporate orders
-        print("Stage 4: Allocating corporate orders...")
+        # Stage 5: Allocate corporate orders
+        print("Stage 5: Allocating corporate orders...")
         corporate_orders = categorized_orders.get("corporate", [])
         if corporate_orders:
-            stage4_result = self._allocate_batch_orders(
+            stage5_result = self._allocate_batch_orders(
                 corporate_orders,
                 categorized_drivers["corporate_capable"] + categorized_drivers["general"],
                 driver_assignments,
                 stage_name="Corporate Orders"
             )
-            allocations.extend(stage4_result["allocations"])
-            allocated_order_ids.update(stage4_result["allocated_order_ids"])
-            print(f"  ✓ Allocated {len(stage4_result['allocated_order_ids'])}/{len(corporate_orders)} corporate orders\n")
+            allocations.extend(stage5_result["allocations"])
+            allocated_order_ids.update(stage5_result["allocated_order_ids"])
+            print(f"  ✓ Allocated {len(stage5_result['allocated_order_ids'])}/{len(corporate_orders)} corporate orders\n")
 
-        # Stage 5: Allocate regular orders
-        print("Stage 5: Allocating regular orders...")
+        # Stage 6: Allocate regular orders
+        print("Stage 6: Allocating regular orders...")
         regular_orders = categorized_orders.get("regular", [])
         if regular_orders:
-            stage5_result = self._allocate_batch_orders(
+            stage6_result = self._allocate_batch_orders(
                 regular_orders,
                 drivers,  # All drivers available
                 driver_assignments,
                 stage_name="Regular Orders"
             )
-            allocations.extend(stage5_result["allocations"])
-            allocated_order_ids.update(stage5_result["allocated_order_ids"])
-            print(f"  ✓ Allocated {len(stage5_result['allocated_order_ids'])}/{len(regular_orders)} regular orders\n")
+            allocations.extend(stage6_result["allocations"])
+            allocated_order_ids.update(stage6_result["allocated_order_ids"])
+            print(f"  ✓ Allocated {len(stage6_result['allocated_order_ids'])}/{len(regular_orders)} regular orders\n")
 
         # Merge allocations by driver
         final_allocations = self._merge_allocations(allocations, drivers)
@@ -161,8 +175,11 @@ class AIAllocator:
 
         # Get AI allocation
         try:
+            # Use the configured prompt strategy (conservative or aggressive)
+            system_prompt = self.config.get_allocation_prompt()
+
             response = self.llm.generate(
-                system_prompt=ALLOCATION_SYSTEM_PROMPT,
+                system_prompt=system_prompt,
                 user_prompt=prompt,
                 response_format="json"
             )

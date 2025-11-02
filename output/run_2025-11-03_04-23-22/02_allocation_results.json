@@ -41,7 +41,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Alice Tan is preferred for central region and has the capability for wedding orders. The orders do not overlap in time.",
+      "reasoning": "Alice Tan is preferred for central region and has the capability for wedding orders. No time conflicts between orders.",
       "utilization": 33.33333333333333
     },
     {
@@ -85,7 +85,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Emily Koh is preferred for south region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Emily Koh is preferred for south region and has the capability for wedding orders. No time conflicts.",
       "utilization": 33.33333333333333
     },
     {
@@ -129,7 +129,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Grace Lee is preferred for east region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Grace Lee is preferred for east region and has the capability for wedding orders. No time conflicts.",
       "utilization": 33.33333333333333
     },
     {
@@ -173,7 +173,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Catherine Wong is preferred for north region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Catherine Wong is preferred for north region and has the capability for wedding orders. No time conflicts.",
       "utilization": 33.33333333333333
     },
     {
@@ -217,7 +217,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Iris Chua is preferred for west region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Iris Chua is preferred for west region and has the capability for wedding orders. No time conflicts.",
       "utilization": 33.33333333333333
     },
     {
@@ -247,7 +247,7 @@
           ]
         }
       ],
-      "reasoning": "Mary Goh is available with no current orders and has wedding capability. The order is in her preferred region (south).",
+      "reasoning": "Driver Mary Goh is available with no current orders and has wedding capability. The order is in the south region, which is her preferred region.",
       "utilization": 20.0
     },
     {
@@ -423,7 +423,7 @@
           ]
         }
       ],
-      "reasoning": "Bob Lim is available with no current orders and has wedding capability. The order is in his preferred region (central).",
+      "reasoning": "Driver Bob Lim is available with no current orders and has wedding capability. The order is in the central region, which is his preferred region.",
       "utilization": 16.666666666666664
     },
     {
@@ -454,7 +454,7 @@
           ]
         }
       ],
-      "reasoning": "David Ng is available with no current orders and has wedding capability. The order is in his preferred region (north).",
+      "reasoning": "Driver David Ng is available with no current orders and has wedding capability. The order is in the north region, which is his preferred region.",
       "utilization": 16.666666666666664
     },
     {
@@ -485,7 +485,7 @@
           ]
         }
       ],
-      "reasoning": "Frank Chen is available with no current orders and has wedding capability. The order is in his preferred region (south).",
+      "reasoning": "Driver Frank Chen is available with no current orders and has wedding capability. The order is in the south region, which is his preferred region.",
       "utilization": 16.666666666666664
     },
     {
@@ -516,7 +516,7 @@
           ]
         }
       ],
-      "reasoning": "Henry Teo is available with no current orders and has wedding capability. The order is in his preferred region (east).",
+      "reasoning": "Driver Henry Teo is available with no current orders and has wedding capability. The order is in the east region, which is his preferred region.",
       "utilization": 16.666666666666664
     },
     {
@@ -547,7 +547,7 @@
           ]
         }
       ],
-      "reasoning": "Jack Yeo is available with no current orders and has wedding capability. The order is in his preferred region (west).",
+      "reasoning": "Driver Jack Yeo is available with no current orders and has wedding capability. The order is in the west region, which is his preferred region.",
       "utilization": 16.666666666666664
     }
   ],

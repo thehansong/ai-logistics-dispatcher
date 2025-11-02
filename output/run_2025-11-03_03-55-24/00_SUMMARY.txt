@@ -2,34 +2,37 @@
 ALLOCATION RUN SUMMARY
 ================================================================================
 
-Run Date: 2025-11-03 04:27:02
-Output Directory: run_2025-11-03_04-26-44
+Run Date: 2025-11-03 03:55:46
+Output Directory: run_2025-11-03_03-55-24
 
 ================================================================================
 KEY METRICS
 ================================================================================
 
 📊 ALLOCATION SUCCESS
-  Total Orders: 30
-  Allocated: 21 (70.0%)
-  Unallocated: 9
-  Drivers Used: 16
+  Total Orders: 60
+  Allocated: 22 (36.7%)
+  Unallocated: 38
+  Drivers Used: 18
 
 🚚 DRIVER UTILIZATION
-  Average: 23.1%
+  Average: 23.2%
   Top 5 Drivers:
-    1. Alice Tan (TEST-DRV-001): 33% - 2 orders
-    2. Emily Koh (TEST-DRV-005): 33% - 2 orders
-    3. Grace Lee (TEST-DRV-007): 33% - 2 orders
-    4. Catherine Wong (TEST-DRV-003): 33% - 2 orders
-    5. Iris Chua (TEST-DRV-009): 33% - 2 orders
+    1. Jun Iyer (DRV-026): 50% - 2 orders
+    2. Karthik Koh (DRV-012): 40% - 2 orders
+    3. Hock Mahmud (DRV-001): 33% - 2 orders
+    4. Wei Teo (DRV-006): 33% - 2 orders
+    5. Farah Low (DRV-013): 25% - 2 orders
 
 🗺️  REGIONAL DISTRIBUTION
-  south: 5 orders
-  central: 4 orders
-  east: 4 orders
-  north: 4 orders
-  west: 4 orders
+  east: 6 orders
+  central: 6 orders
+  north: 6 orders
+  west: 5 orders
+
+⚠️  WARNINGS (2)
+  • Driver DRV-041 (prefers west) has 1/1 orders outside preferred region: ['Q1194']
+  • High wedding order load: 36 orders for 14 drivers
 
 ================================================================================
 FILES GENERATED

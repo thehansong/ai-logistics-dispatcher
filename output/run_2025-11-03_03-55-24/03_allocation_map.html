@@ -1,0 +1,3271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f7ea8e60f08401c328495c3325c3c951 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed;
+                    top: 10px; left: 50px; width: 400px; height: 90px;
+                    background-color: white; border:2px solid grey; z-index:9999;
+                    font-size:14px; padding: 10px">
+        <h4 style="margin: 0">Smart Delivery Allocator</h4>
+        <p style="margin: 5px 0"><strong>Total Allocations:</strong> 23</p>
+        <p style="margin: 5px 0"><strong>Drivers Used:</strong> 18</p>
+        <p style="margin: 5px 0"><strong>Unallocated:</strong> 38</p>
+        </div>
+        
+    
+        <div style="position: fixed;
+                    bottom: 50px; right: 50px; width: 200px;
+                    background-color: white; border:2px solid grey; z-index:9999;
+                    font-size:12px; padding: 10px">
+        <h4 style="margin: 0 0 10px 0">Legend</h4>
+        <p style="margin: 3px 0">
+            <i class="fa fa-star" style="color: black"></i> VIP Orders
+        </p>
+        <p style="margin: 3px 0">
+            <i class="fa fa-cutlery" style="color: black"></i> Regular Orders
+        </p>
+        <p style="margin: 3px 0">
+            <i class="fa fa-exclamation-triangle" style="color: red"></i> Unallocated
+        </p>
+        <hr style="margin: 10px 0">
+        <p style="margin: 3px 0; font-size: 11px">
+            <strong>Tip:</strong> Click markers for details.<br>
+            Use layer control (top right) to filter drivers.
+        </p>
+        </div>
+        
+    
+            <div class="folium-map" id="map_f7ea8e60f08401c328495c3325c3c951" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f7ea8e60f08401c328495c3325c3c951 = L.map(
+                "map_f7ea8e60f08401c328495c3325c3c951",
+                {
+                    center: [1.3521, 103.8198],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a3192464f82b035825a50621c0d1f6d8 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a3192464f82b035825a50621c0d1f6d8.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_c70b3892bbe13bf114c675d59be75c8c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_6f05e37b8286cbc6835582c51c92fa37 = L.marker(
+                [1.313219, 103.907839],
+                {
+}
+            ).addTo(feature_group_c70b3892bbe13bf114c675d59be75c8c);
+        
+    
+            var icon_298a7baf53779851abe26e36d634d1b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194B",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_37e2e93be1ed0ca5b7eab1d355ca73f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fdcff4fa9d8e7f5b0f6ee4bb65ef6e68 = $(`<div id="html_fdcff4fa9d8e7f5b0f6ee4bb65ef6e68" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q3819</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 2 Dundee Rd, Church of the Good Shepherd</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 21:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 200</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Jun Iyer</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-026</p>         </div>         </div>`)[0];
+                popup_37e2e93be1ed0ca5b7eab1d355ca73f5.setContent(html_fdcff4fa9d8e7f5b0f6ee4bb65ef6e68);
+            
+        
+
+        marker_6f05e37b8286cbc6835582c51c92fa37.bindPopup(popup_37e2e93be1ed0ca5b7eab1d355ca73f5)
+        ;
+
+        
+    
+    
+            marker_6f05e37b8286cbc6835582c51c92fa37.bindTooltip(
+                `<div>
+                     Q3819 - Jun Iyer
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6f05e37b8286cbc6835582c51c92fa37.setIcon(icon_298a7baf53779851abe26e36d634d1b7);
+            
+    
+            var marker_8557bb5a974a5fb2b8da56d21d3213b1 = L.marker(
+                [1.339917, 103.93176],
+                {
+}
+            ).addTo(feature_group_c70b3892bbe13bf114c675d59be75c8c);
+        
+    
+            var icon_131ccffba60edc7a8fa012578f23ca7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194B",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2349fcbb9915ab7d7f4e40e6637a2ed6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_555a399fb28c6a215f9eae45be84f93d = $(`<div id="html_555a399fb28c6a215f9eae45be84f93d" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P2994</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 5 Jiak Kim Street, Warehouse @ River Promenade</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 03:00</p>             <p style="margin: 3px 0"><strong>Event:</strong> Dinner Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 120</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Jun Iyer</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-026</p>         </div>         </div>`)[0];
+                popup_2349fcbb9915ab7d7f4e40e6637a2ed6.setContent(html_555a399fb28c6a215f9eae45be84f93d);
+            
+        
+
+        marker_8557bb5a974a5fb2b8da56d21d3213b1.bindPopup(popup_2349fcbb9915ab7d7f4e40e6637a2ed6)
+        ;
+
+        
+    
+    
+            marker_8557bb5a974a5fb2b8da56d21d3213b1.bindTooltip(
+                `<div>
+                     P2994 - Jun Iyer
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8557bb5a974a5fb2b8da56d21d3213b1.setIcon(icon_131ccffba60edc7a8fa012578f23ca7e);
+            
+    
+            feature_group_c70b3892bbe13bf114c675d59be75c8c.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_30d378cd7a494c7d4b57691f1cbbb269 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_779a08751fcfcdc25b99dda4f256d507 = L.marker(
+                [1.317289, 103.876982],
+                {
+}
+            ).addTo(feature_group_30d378cd7a494c7d4b57691f1cbbb269);
+        
+    
+            var icon_13a20ab251e4ea6f99490e58081a85db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#3cb44b",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9e4dc67367ffc880797b6bdd7659feaf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_828b34aea801392d9bdd28d79005a15f = $(`<div id="html_828b34aea801392d9bdd28d79005a15f" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P5729</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 33 Hyderabad Rd, Hortpark - MPH</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 03:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Dinner Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 80</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Karthik Koh</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-012</p>         </div>         </div>`)[0];
+                popup_9e4dc67367ffc880797b6bdd7659feaf.setContent(html_828b34aea801392d9bdd28d79005a15f);
+            
+        
+
+        marker_779a08751fcfcdc25b99dda4f256d507.bindPopup(popup_9e4dc67367ffc880797b6bdd7659feaf)
+        ;
+
+        
+    
+    
+            marker_779a08751fcfcdc25b99dda4f256d507.bindTooltip(
+                `<div>
+                     P5729 - Karthik Koh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_779a08751fcfcdc25b99dda4f256d507.setIcon(icon_13a20ab251e4ea6f99490e58081a85db);
+            
+    
+            var marker_bf62f99fe303fea9d9a29df511174688 = L.marker(
+                [1.305716, 103.832898],
+                {
+}
+            ).addTo(feature_group_30d378cd7a494c7d4b57691f1cbbb269);
+        
+    
+            var icon_4211127b138eaa870d2f75fdf5e2a5d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#3cb44b",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0e95ccf5621e801ebba6ffa89b26225a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b3030be309a90172a3c68b226bf4340 = $(`<div id="html_0b3030be309a90172a3c68b226bf4340" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q5402</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 32 Maxwell Road, #03-01, Singapore</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 23:00</p>             <p style="margin: 3px 0"><strong>Event:</strong> High Tea</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 100</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Karthik Koh</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-012</p>         </div>         </div>`)[0];
+                popup_0e95ccf5621e801ebba6ffa89b26225a.setContent(html_0b3030be309a90172a3c68b226bf4340);
+            
+        
+
+        marker_bf62f99fe303fea9d9a29df511174688.bindPopup(popup_0e95ccf5621e801ebba6ffa89b26225a)
+        ;
+
+        
+    
+    
+            marker_bf62f99fe303fea9d9a29df511174688.bindTooltip(
+                `<div>
+                     Q5402 - Karthik Koh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bf62f99fe303fea9d9a29df511174688.setIcon(icon_4211127b138eaa870d2f75fdf5e2a5d2);
+            
+    
+            feature_group_30d378cd7a494c7d4b57691f1cbbb269.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_6d2aeaf66320898507c8155909571743 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_a9610beb91008fecd8cd99759468fce9 = L.marker(
+                [1.366116, 103.846863],
+                {
+}
+            ).addTo(feature_group_6d2aeaf66320898507c8155909571743);
+        
+    
+            var icon_d20b64188de2cb01e8344156e4f59836 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#ffe119",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da3e9a77862ac7685387f86484f797ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2641f0b909b900b5428970f8287c8993 = $(`<div id="html_2641f0b909b900b5428970f8287c8993" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q3370</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 506 Airport Road, Paya Lebar</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 03:00</p>             <p style="margin: 3px 0"><strong>Event:</strong> None</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 10</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Hock Mahmud</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-001</p>         </div>         </div>`)[0];
+                popup_da3e9a77862ac7685387f86484f797ae.setContent(html_2641f0b909b900b5428970f8287c8993);
+            
+        
+
+        marker_a9610beb91008fecd8cd99759468fce9.bindPopup(popup_da3e9a77862ac7685387f86484f797ae)
+        ;
+
+        
+    
+    
+            marker_a9610beb91008fecd8cd99759468fce9.bindTooltip(
+                `<div>
+                     Q3370 - Hock Mahmud
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a9610beb91008fecd8cd99759468fce9.setIcon(icon_d20b64188de2cb01e8344156e4f59836);
+            
+    
+            var marker_b2d052fc99a6d44cad9604199876d286 = L.marker(
+                [1.432833, 103.784088],
+                {
+}
+            ).addTo(feature_group_6d2aeaf66320898507c8155909571743);
+        
+    
+            var icon_b0846ffb015d8a695e07d04dd2c17a15 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#ffe119",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_74483d22256a8ac124a23341e1e6ad69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_db456289a619c52503a7bc0779932314 = $(`<div id="html_db456289a619c52503a7bc0779932314" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q3371</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 301 Sembawang Rd</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 20:30</p>             <p style="margin: 3px 0"><strong>Event:</strong> None</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 20</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Hock Mahmud</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-001</p>         </div>         </div>`)[0];
+                popup_74483d22256a8ac124a23341e1e6ad69.setContent(html_db456289a619c52503a7bc0779932314);
+            
+        
+
+        marker_b2d052fc99a6d44cad9604199876d286.bindPopup(popup_74483d22256a8ac124a23341e1e6ad69)
+        ;
+
+        
+    
+    
+            marker_b2d052fc99a6d44cad9604199876d286.bindTooltip(
+                `<div>
+                     Q3371 - Hock Mahmud
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b2d052fc99a6d44cad9604199876d286.setIcon(icon_b0846ffb015d8a695e07d04dd2c17a15);
+            
+    
+            feature_group_6d2aeaf66320898507c8155909571743.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_95e2d96a08b77713914168438a885ef2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_48caf18d357789fc5c879dff167cc570 = L.marker(
+                [1.384978, 103.743029],
+                {
+}
+            ).addTo(feature_group_95e2d96a08b77713914168438a885ef2);
+        
+    
+            var icon_c88ba5123913a503c3336240dede3d51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#4363d8",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a78e12a95cd14e2ab08bccbc217bc87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79be631f29d97742fc0b0bfbe7e7fdc0 = $(`<div id="html_79be631f29d97742fc0b0bfbe7e7fdc0" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q4280</h4>             <p style="margin: 3px 0"><strong>Address:</strong> WH Boardroom, Level 7, WH Medical Centre 17 Woodlands Drive 17</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 03:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Mini Buffet (Meal Box)</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 15</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Wei Teo</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-006</p>         </div>         </div>`)[0];
+                popup_0a78e12a95cd14e2ab08bccbc217bc87.setContent(html_79be631f29d97742fc0b0bfbe7e7fdc0);
+            
+        
+
+        marker_48caf18d357789fc5c879dff167cc570.bindPopup(popup_0a78e12a95cd14e2ab08bccbc217bc87)
+        ;
+
+        
+    
+    
+            marker_48caf18d357789fc5c879dff167cc570.bindTooltip(
+                `<div>
+                     Q4280 - Wei Teo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_48caf18d357789fc5c879dff167cc570.setIcon(icon_c88ba5123913a503c3336240dede3d51);
+            
+    
+            var marker_ca68a1788027f13a9c0b27a3a2fbf484 = L.marker(
+                [1.439722, 103.78444],
+                {
+}
+            ).addTo(feature_group_95e2d96a08b77713914168438a885ef2);
+        
+    
+            var icon_567828580262e75f68aba24fd95e2a44 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#4363d8",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b9ab8b1a9cc51c8fa652bbe1274a2a0a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2d8ba4a775a042feff33fcf5047670a = $(`<div id="html_b2d8ba4a775a042feff33fcf5047670a" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q4284</h4>             <p style="margin: 3px 0"><strong>Address:</strong> YCH Boardroom, Level 8, Tower E Yishun Community Hospital 2 Yishun Central 2</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 20:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Mini Buffet (Meal Box)</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 10</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Wei Teo</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-006</p>         </div>         </div>`)[0];
+                popup_b9ab8b1a9cc51c8fa652bbe1274a2a0a.setContent(html_b2d8ba4a775a042feff33fcf5047670a);
+            
+        
+
+        marker_ca68a1788027f13a9c0b27a3a2fbf484.bindPopup(popup_b9ab8b1a9cc51c8fa652bbe1274a2a0a)
+        ;
+
+        
+    
+    
+            marker_ca68a1788027f13a9c0b27a3a2fbf484.bindTooltip(
+                `<div>
+                     Q4284 - Wei Teo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ca68a1788027f13a9c0b27a3a2fbf484.setIcon(icon_567828580262e75f68aba24fd95e2a44);
+            
+    
+            feature_group_95e2d96a08b77713914168438a885ef2.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_b16b3ef9e49b35430aa4794d62c5eaf6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_4bf4472ca603a20a4c42b7a524e81cb4 = L.marker(
+                [1.34637, 103.698912],
+                {
+}
+            ).addTo(feature_group_b16b3ef9e49b35430aa4794d62c5eaf6);
+        
+    
+            var icon_6a7b4e118903c9a309907293b1241021 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#f58231",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da2672fe655eb58f18ab312348a2fb0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c98fd3060363469732fa993945a06e56 = $(`<div id="html_c98fd3060363469732fa993945a06e56" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P2927</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Tanglin Gin Jungle, Dempsey Rd, 26B</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 02:15</p>             <p style="margin: 3px 0"><strong>Event:</strong> Dinner Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 150</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Farah Low</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-013</p>         </div>         </div>`)[0];
+                popup_da2672fe655eb58f18ab312348a2fb0d.setContent(html_c98fd3060363469732fa993945a06e56);
+            
+        
+
+        marker_4bf4472ca603a20a4c42b7a524e81cb4.bindPopup(popup_da2672fe655eb58f18ab312348a2fb0d)
+        ;
+
+        
+    
+    
+            marker_4bf4472ca603a20a4c42b7a524e81cb4.bindTooltip(
+                `<div>
+                     P2927 - Farah Low
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4bf4472ca603a20a4c42b7a524e81cb4.setIcon(icon_6a7b4e118903c9a309907293b1241021);
+            
+    
+            var marker_f6234d2ac4c8f9cb6062e402bed34afb = L.marker(
+                [1.330741, 103.743069],
+                {
+}
+            ).addTo(feature_group_b16b3ef9e49b35430aa4794d62c5eaf6);
+        
+    
+            var icon_7b8be77a98f80df264b9f8e701115933 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#f58231",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6b9dc8ba9bac3c8bc525480599496d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_499cd89b964aeeb7403ad46f6f08bb65 = $(`<div id="html_499cd89b964aeeb7403ad46f6f08bb65" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 O9254</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Calvary Pandan Bible Presbyterian Church, 201 Pandan Gardens</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 21:00</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 150</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Farah Low</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-013</p>         </div>         </div>`)[0];
+                popup_e6b9dc8ba9bac3c8bc525480599496d0.setContent(html_499cd89b964aeeb7403ad46f6f08bb65);
+            
+        
+
+        marker_f6234d2ac4c8f9cb6062e402bed34afb.bindPopup(popup_e6b9dc8ba9bac3c8bc525480599496d0)
+        ;
+
+        
+    
+    
+            marker_f6234d2ac4c8f9cb6062e402bed34afb.bindTooltip(
+                `<div>
+                     O9254 - Farah Low
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f6234d2ac4c8f9cb6062e402bed34afb.setIcon(icon_7b8be77a98f80df264b9f8e701115933);
+            
+    
+            feature_group_b16b3ef9e49b35430aa4794d62c5eaf6.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_62e86058635df23ddcc4c52ccb8ea729 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_7d1720b89a901df7c4cea159fb33a9ca = L.marker(
+                [1.328371, 103.921859],
+                {
+}
+            ).addTo(feature_group_62e86058635df23ddcc4c52ccb8ea729);
+        
+    
+            var icon_e2afdd536459a73a1bc1d894db4cc9a1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#911eb4",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c15fcc094b87f30250e592121fcb3a35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43292f2aadfbdd7a37f58737f844562a = $(`<div id="html_43292f2aadfbdd7a37f58737f844562a" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 N8029</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Christ Methodist Church, 597 East Coast Road, Singapore</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 19:30</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 200</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Lakshmi Naidu</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-008</p>         </div>         </div>`)[0];
+                popup_c15fcc094b87f30250e592121fcb3a35.setContent(html_43292f2aadfbdd7a37f58737f844562a);
+            
+        
+
+        marker_7d1720b89a901df7c4cea159fb33a9ca.bindPopup(popup_c15fcc094b87f30250e592121fcb3a35)
+        ;
+
+        
+    
+    
+            marker_7d1720b89a901df7c4cea159fb33a9ca.bindTooltip(
+                `<div>
+                     N8029 - Lakshmi Naidu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d1720b89a901df7c4cea159fb33a9ca.setIcon(icon_e2afdd536459a73a1bc1d894db4cc9a1);
+            
+    
+            feature_group_62e86058635df23ddcc4c52ccb8ea729.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_55e4a8135e707af597665d727aa04bfc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_e8bf13ee7d04a58f2ac8616180bd0a4c = L.marker(
+                [1.354315, 103.816983],
+                {
+}
+            ).addTo(feature_group_55e4a8135e707af597665d727aa04bfc);
+        
+    
+            var icon_83861889560e2ca89bbb038438ed57f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#42d4f4",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_252b07ea15be54401007c0ac7c55c809 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2eee351438b6a33ceefda03dbace689b = $(`<div id="html_2eee351438b6a33ceefda03dbace689b" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P4506</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 11 St Andrew's Rd, St Andrew Cathedral</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 21:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 80</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Keng Chua</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-064</p>         </div>         </div>`)[0];
+                popup_252b07ea15be54401007c0ac7c55c809.setContent(html_2eee351438b6a33ceefda03dbace689b);
+            
+        
+
+        marker_e8bf13ee7d04a58f2ac8616180bd0a4c.bindPopup(popup_252b07ea15be54401007c0ac7c55c809)
+        ;
+
+        
+    
+    
+            marker_e8bf13ee7d04a58f2ac8616180bd0a4c.bindTooltip(
+                `<div>
+                     P4506 - Keng Chua
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e8bf13ee7d04a58f2ac8616180bd0a4c.setIcon(icon_83861889560e2ca89bbb038438ed57f6);
+            
+    
+            feature_group_55e4a8135e707af597665d727aa04bfc.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_e5c9cc81140710f38f7d8e7d300b6555 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_c496da04a4c43756d581e61d5393e595 = L.marker(
+                [1.32297, 103.89375],
+                {
+}
+            ).addTo(feature_group_e5c9cc81140710f38f7d8e7d300b6555);
+        
+    
+            var icon_a6e3ff18ac1e8df06df15071455115af = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#f032e6",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_03bbfab8bb07c8138611bdea6002773d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f61b4c7650bcf4f2c95423f62c992d4 = $(`<div id="html_0f61b4c7650bcf4f2c95423f62c992d4" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 O9177</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 149 Sims Dr</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 16:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Half-day Seminar</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 60</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate, early_setup</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Kumar Koh</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-011</p>         </div>         </div>`)[0];
+                popup_03bbfab8bb07c8138611bdea6002773d.setContent(html_0f61b4c7650bcf4f2c95423f62c992d4);
+            
+        
+
+        marker_c496da04a4c43756d581e61d5393e595.bindPopup(popup_03bbfab8bb07c8138611bdea6002773d)
+        ;
+
+        
+    
+    
+            marker_c496da04a4c43756d581e61d5393e595.bindTooltip(
+                `<div>
+                     O9177 - Kumar Koh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c496da04a4c43756d581e61d5393e595.setIcon(icon_a6e3ff18ac1e8df06df15071455115af);
+            
+    
+            feature_group_e5c9cc81140710f38f7d8e7d300b6555.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_e7a03e2b29ca753e6413eda8e569bd6a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_180a3a704f762bdd5941c60e5a0c1d44 = L.marker(
+                [1.3515, 103.819482],
+                {
+}
+            ).addTo(feature_group_e7a03e2b29ca753e6413eda8e569bd6a);
+        
+    
+            var icon_7f12e7aedca093bec55fa9a9b5c83d83 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#bfef45",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b3b93e27b8d328dae22fd194a9d14371 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d4aeb534ff0c238e6b25c0c9de547f63 = $(`<div id="html_d4aeb534ff0c238e6b25c0c9de547f63" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 O4346</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 20 Biopolis Way #08-01 Centros Building</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 16:30</p>             <p style="margin: 3px 0"><strong>Event:</strong> Full-day Seminar</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 60</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate, early_setup</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Jie Chen</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-020</p>         </div>         </div>`)[0];
+                popup_b3b93e27b8d328dae22fd194a9d14371.setContent(html_d4aeb534ff0c238e6b25c0c9de547f63);
+            
+        
+
+        marker_180a3a704f762bdd5941c60e5a0c1d44.bindPopup(popup_b3b93e27b8d328dae22fd194a9d14371)
+        ;
+
+        
+    
+    
+            marker_180a3a704f762bdd5941c60e5a0c1d44.bindTooltip(
+                `<div>
+                     O4346 - Jie Chen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_180a3a704f762bdd5941c60e5a0c1d44.setIcon(icon_7f12e7aedca093bec55fa9a9b5c83d83);
+            
+    
+            feature_group_e7a03e2b29ca753e6413eda8e569bd6a.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_c93a643a026f8b440f3df1be83e0ac39 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_a060cda02e09de4ed4f0454fe898475c = L.marker(
+                [1.381094, 103.742531],
+                {
+}
+            ).addTo(feature_group_c93a643a026f8b440f3df1be83e0ac39);
+        
+    
+            var icon_283e18fc4783363daf492d87e2d64f6c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#fabed4",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fcc140c104fa061e19364a79b3bff851 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77b913e514c03ebc2fb1ec453434040b = $(`<div id="html_77b913e514c03ebc2fb1ec453434040b" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q3373</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 760 Old Choa Chu Kang Rd</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 20:15</p>             <p style="margin: 3px 0"><strong>Event:</strong> None</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 15</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Hakim Osman</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-002</p>         </div>         </div>`)[0];
+                popup_fcc140c104fa061e19364a79b3bff851.setContent(html_77b913e514c03ebc2fb1ec453434040b);
+            
+        
+
+        marker_a060cda02e09de4ed4f0454fe898475c.bindPopup(popup_fcc140c104fa061e19364a79b3bff851)
+        ;
+
+        
+    
+    
+            marker_a060cda02e09de4ed4f0454fe898475c.bindTooltip(
+                `<div>
+                     Q3373 - Hakim Osman
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a060cda02e09de4ed4f0454fe898475c.setIcon(icon_283e18fc4783363daf492d87e2d64f6c);
+            
+    
+            feature_group_c93a643a026f8b440f3df1be83e0ac39.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_a06684946572c9dce4302ffe351b6a41 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_853b9faf6163ece61cbac91ae5fda332 = L.marker(
+                [1.340875, 103.767876],
+                {
+}
+            ).addTo(feature_group_a06684946572c9dce4302ffe351b6a41);
+        
+    
+            var icon_26291815893596d62509ff36c410b275 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#469990",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e5cbec40a2822f6a4dcb0059c215ee8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a64ade264b208932d96b4144afd0560c = $(`<div id="html_a64ade264b208932d96b4144afd0560c" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P4047</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 655 Senja Road, #11-272</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 02:30</p>             <p style="margin: 3px 0"><strong>Event:</strong> None</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 10</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Aisyah Chen</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-003</p>         </div>         </div>`)[0];
+                popup_4e5cbec40a2822f6a4dcb0059c215ee8.setContent(html_a64ade264b208932d96b4144afd0560c);
+            
+        
+
+        marker_853b9faf6163ece61cbac91ae5fda332.bindPopup(popup_4e5cbec40a2822f6a4dcb0059c215ee8)
+        ;
+
+        
+    
+    
+            marker_853b9faf6163ece61cbac91ae5fda332.bindTooltip(
+                `<div>
+                     P4047 - Aisyah Chen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_853b9faf6163ece61cbac91ae5fda332.setIcon(icon_26291815893596d62509ff36c410b275);
+            
+    
+            feature_group_a06684946572c9dce4302ffe351b6a41.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_343f93c18eab15b988e3299326c57ab8 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_3bea48f340874d57a4a7ad59660942c4 = L.marker(
+                [1.35407, 103.81858],
+                {
+}
+            ).addTo(feature_group_343f93c18eab15b988e3299326c57ab8);
+        
+    
+            var icon_046ceb0a6d9256eaeb677cd70f356e60 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#dcbeff",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dd774776c3c95d5fcedbd9d7bc32bd58 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d080f78b02f245c274ee698ae6091de = $(`<div id="html_3d080f78b02f245c274ee698ae6091de" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P9764</h4>             <p style="margin: 3px 0"><strong>Address:</strong> SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 01:15</p>             <p style="margin: 3px 0"><strong>Event:</strong> Dinner Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 60</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Hafiz Sharma</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-010</p>         </div>         </div>`)[0];
+                popup_dd774776c3c95d5fcedbd9d7bc32bd58.setContent(html_3d080f78b02f245c274ee698ae6091de);
+            
+        
+
+        marker_3bea48f340874d57a4a7ad59660942c4.bindPopup(popup_dd774776c3c95d5fcedbd9d7bc32bd58)
+        ;
+
+        
+    
+    
+            marker_3bea48f340874d57a4a7ad59660942c4.bindTooltip(
+                `<div>
+                     P9764 - Hafiz Sharma
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3bea48f340874d57a4a7ad59660942c4.setIcon(icon_046ceb0a6d9256eaeb677cd70f356e60);
+            
+    
+            feature_group_343f93c18eab15b988e3299326c57ab8.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_edab59fa7d7ada41ed1b119c3e4b318e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d414051ee6172f1207a11cc2c5213b95 = L.marker(
+                [1.393964, 103.841635],
+                {
+}
+            ).addTo(feature_group_edab59fa7d7ada41ed1b119c3e4b318e);
+        
+    
+            var icon_fa2f008b28ed55e58339cd8d474425de = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#9A6324",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8ae7909247bf50e44d21927c62ba8602 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38800843dd5888be87dd673cd6097821 = $(`<div id="html_38800843dd5888be87dd673cd6097821" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q3958</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Sacred Heart Hall, Church of Saint Ignatius, 8 Victoria Park Rd</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 19:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 200</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Keng Low</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-022</p>         </div>         </div>`)[0];
+                popup_8ae7909247bf50e44d21927c62ba8602.setContent(html_38800843dd5888be87dd673cd6097821);
+            
+        
+
+        marker_d414051ee6172f1207a11cc2c5213b95.bindPopup(popup_8ae7909247bf50e44d21927c62ba8602)
+        ;
+
+        
+    
+    
+            marker_d414051ee6172f1207a11cc2c5213b95.bindTooltip(
+                `<div>
+                     Q3958 - Keng Low
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d414051ee6172f1207a11cc2c5213b95.setIcon(icon_fa2f008b28ed55e58339cd8d474425de);
+            
+    
+            feature_group_edab59fa7d7ada41ed1b119c3e4b318e.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_c12086d3678c21cc0f15be7f6f55e00b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_6326709441f7298a04dbcb7fa43cb8bf = L.marker(
+                [1.29478, 103.85345],
+                {
+}
+            ).addTo(feature_group_c12086d3678c21cc0f15be7f6f55e00b);
+        
+    
+            var icon_d635b717fc1c0e046a547ac7cbad954e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#fffac8",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_59e1748b0b6918b31835b758dfb41f8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22cdffb1a436dc4455e669b7b1e57db4 = $(`<div id="html_22cdffb1a436dc4455e669b7b1e57db4" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 N8347</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 9 Wallich St, Sofitel Singapore City Centre</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 20:00</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 150</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Yi Sharma</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-043</p>         </div>         </div>`)[0];
+                popup_59e1748b0b6918b31835b758dfb41f8d.setContent(html_22cdffb1a436dc4455e669b7b1e57db4);
+            
+        
+
+        marker_6326709441f7298a04dbcb7fa43cb8bf.bindPopup(popup_59e1748b0b6918b31835b758dfb41f8d)
+        ;
+
+        
+    
+    
+            marker_6326709441f7298a04dbcb7fa43cb8bf.bindTooltip(
+                `<div>
+                     N8347 - Yi Sharma
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6326709441f7298a04dbcb7fa43cb8bf.setIcon(icon_d635b717fc1c0e046a547ac7cbad954e);
+            
+    
+            feature_group_c12086d3678c21cc0f15be7f6f55e00b.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_4d6bb279a385b9b3a9c52553df9b156c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f969ad14587c0aacbf6a2140fedbc592 = L.marker(
+                [1.339633, 103.699072],
+                {
+}
+            ).addTo(feature_group_4d6bb279a385b9b3a9c52553df9b156c);
+        
+    
+            var icon_51fc7f9b341b7ae874656048a78291ef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#800000",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1a70ad468af00c6e1f74be40ff4dba47 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e537c86ec049e8d42899b121fbb4078 = $(`<div id="html_9e537c86ec049e8d42899b121fbb4078" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P8848</h4>             <p style="margin: 3px 0"><strong>Address:</strong> ARPC @ Tengah, 200 Bukit Batok West Ave. 5</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 20:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 80</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Ravi Yusof</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-038</p>         </div>         </div>`)[0];
+                popup_1a70ad468af00c6e1f74be40ff4dba47.setContent(html_9e537c86ec049e8d42899b121fbb4078);
+            
+        
+
+        marker_f969ad14587c0aacbf6a2140fedbc592.bindPopup(popup_1a70ad468af00c6e1f74be40ff4dba47)
+        ;
+
+        
+    
+    
+            marker_f969ad14587c0aacbf6a2140fedbc592.bindTooltip(
+                `<div>
+                     P8848 - Ravi Yusof
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f969ad14587c0aacbf6a2140fedbc592.setIcon(icon_51fc7f9b341b7ae874656048a78291ef);
+            
+    
+            feature_group_4d6bb279a385b9b3a9c52553df9b156c.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_d7013102acb9ca77c2adfe4fc2b5b08c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_05ee14a49416106c1f779762d0026e41 = L.marker(
+                [1.384978, 103.743029],
+                {
+}
+            ).addTo(feature_group_d7013102acb9ca77c2adfe4fc2b5b08c);
+        
+    
+            var icon_221dd059e6b39d3a26796e01dae46d7d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#aaffc3",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4538c48ecf9699aaaaec9d50cc8d4e37 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d89001f2d554b7d5171adb9e38164a6b = $(`<div id="html_d89001f2d554b7d5171adb9e38164a6b" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q4280</h4>             <p style="margin: 3px 0"><strong>Address:</strong> WH Boardroom, Level 7, WH Medical Centre 17 Woodlands Drive 17</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 03:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Mini Buffet (Meal Box)</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 15</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Sarah Hassan</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-007</p>         </div>         </div>`)[0];
+                popup_4538c48ecf9699aaaaec9d50cc8d4e37.setContent(html_d89001f2d554b7d5171adb9e38164a6b);
+            
+        
+
+        marker_05ee14a49416106c1f779762d0026e41.bindPopup(popup_4538c48ecf9699aaaaec9d50cc8d4e37)
+        ;
+
+        
+    
+    
+            marker_05ee14a49416106c1f779762d0026e41.bindTooltip(
+                `<div>
+                     Q4280 - Sarah Hassan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_05ee14a49416106c1f779762d0026e41.setIcon(icon_221dd059e6b39d3a26796e01dae46d7d);
+            
+    
+            feature_group_d7013102acb9ca77c2adfe4fc2b5b08c.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_1d36250b5cda5fb73dec417bcb7d7905 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_e1e40959dc6cf73e336e0f1ff25a0ef5 = L.marker(
+                [1.349667, 103.822358],
+                {
+}
+            ).addTo(feature_group_1d36250b5cda5fb73dec417bcb7d7905);
+        
+    
+            var icon_b7163822f0c4d864d7c739402c0fe14e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#808000",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9910c41f371cf20caf7fa34e2450bec3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c8c4d1fa39608a997d799f7e776ba99 = $(`<div id="html_7c8c4d1fa39608a997d799f7e776ba99" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 Q1194</h4>             <p style="margin: 3px 0"><strong>Address:</strong> The Singapore Thomson Road Baptist Church, 45 Thomson Rd</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 20:30</p>             <p style="margin: 3px 0"><strong>Event:</strong> Lunch Buffet</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 100</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Sanjay Menon</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-041</p>         </div>         </div>`)[0];
+                popup_9910c41f371cf20caf7fa34e2450bec3.setContent(html_7c8c4d1fa39608a997d799f7e776ba99);
+            
+        
+
+        marker_e1e40959dc6cf73e336e0f1ff25a0ef5.bindPopup(popup_9910c41f371cf20caf7fa34e2450bec3)
+        ;
+
+        
+    
+    
+            marker_e1e40959dc6cf73e336e0f1ff25a0ef5.bindTooltip(
+                `<div>
+                     Q1194 - Sanjay Menon
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e1e40959dc6cf73e336e0f1ff25a0ef5.setIcon(icon_b7163822f0c4d864d7c739402c0fe14e);
+            
+    
+            feature_group_1d36250b5cda5fb73dec417bcb7d7905.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_ebd2c742eb5ef9153b9989ff771074ea = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_0bc12d4db8bb0269655fa8ae41c30c8b = L.marker(
+                [1.3521, 103.8198],
+                {
+}
+            ).addTo(feature_group_ebd2c742eb5ef9153b9989ff771074ea);
+        
+    
+            var icon_24aa1e7480872441b4f59f191b482235 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#ffd8b1",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22e471f6e34e85079287d6595c82dd79 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81f9a56ef2991cbc51f66fab10c4f6ad = $(`<div id="html_81f9a56ef2991cbc51f66fab10c4f6ad" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0">📦 P6569</h4>             <p style="margin: 3px 0"><strong>Address:</strong> TBC</p>             <p style="margin: 3px 0"><strong>Setup Time:</strong> 16:45</p>             <p style="margin: 3px 0"><strong>Event:</strong> Half-day Seminar</p>             <p style="margin: 3px 0"><strong>Pax:</strong> 60</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate, early_setup</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0"><strong>🚚 Driver:</strong> Muhammad Rodriguez</p>             <p style="margin: 3px 0"><strong>ID:</strong> DRV-025</p>         </div>         </div>`)[0];
+                popup_22e471f6e34e85079287d6595c82dd79.setContent(html_81f9a56ef2991cbc51f66fab10c4f6ad);
+            
+        
+
+        marker_0bc12d4db8bb0269655fa8ae41c30c8b.bindPopup(popup_22e471f6e34e85079287d6595c82dd79)
+        ;
+
+        
+    
+    
+            marker_0bc12d4db8bb0269655fa8ae41c30c8b.bindTooltip(
+                `<div>
+                     P6569 - Muhammad Rodriguez
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0bc12d4db8bb0269655fa8ae41c30c8b.setIcon(icon_24aa1e7480872441b4f59f191b482235);
+            
+    
+            feature_group_ebd2c742eb5ef9153b9989ff771074ea.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var feature_group_b9a4bdfdfb77e776358a51e4bcd087d2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_124e47d11c75a75106a7705d9b2b0dbb = L.marker(
+                [1.352875, 103.822659],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_d44b775ab9b9e81b2af2143943f6e502 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2839b55951e1b1bf009dd62eeba67290 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e9d04c89c533b09fc211a32162acf76 = $(`<div id="html_7e9d04c89c533b09fc211a32162acf76" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q3372</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 60 Seletar Aerospace View, Seletar,</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_2839b55951e1b1bf009dd62eeba67290.setContent(html_7e9d04c89c533b09fc211a32162acf76);
+            
+        
+
+        marker_124e47d11c75a75106a7705d9b2b0dbb.bindPopup(popup_2839b55951e1b1bf009dd62eeba67290)
+        ;
+
+        
+    
+    
+            marker_124e47d11c75a75106a7705d9b2b0dbb.bindTooltip(
+                `<div>
+                     ⚠️ Q3372 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_124e47d11c75a75106a7705d9b2b0dbb.setIcon(icon_d44b775ab9b9e81b2af2143943f6e502);
+            
+    
+            var marker_2d683532a3f8b6e0d6ac528c0c385322 = L.marker(
+                [1.349191, 103.991994],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_599ad16fa79ff0783e9f0eabbdb29128 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ebdf44a9fa1dea39fcb3dd1329f2c971 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a41c2e195385ff7e6d70bbd2e60ae8d = $(`<div id="html_8a41c2e195385ff7e6d70bbd2e60ae8d" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q3374</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 317 Tanah Merah Coast Road</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_ebdf44a9fa1dea39fcb3dd1329f2c971.setContent(html_8a41c2e195385ff7e6d70bbd2e60ae8d);
+            
+        
+
+        marker_2d683532a3f8b6e0d6ac528c0c385322.bindPopup(popup_ebdf44a9fa1dea39fcb3dd1329f2c971)
+        ;
+
+        
+    
+    
+            marker_2d683532a3f8b6e0d6ac528c0c385322.bindTooltip(
+                `<div>
+                     ⚠️ Q3374 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2d683532a3f8b6e0d6ac528c0c385322.setIcon(icon_599ad16fa79ff0783e9f0eabbdb29128);
+            
+    
+            var marker_8c196baf1db494d8fe583675f450c7ab = L.marker(
+                [1.349681, 103.820109],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_3c42db1e1bd427278d4feca9ad4b14f2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3bffaec0f3a07686fffb6b5c8e973abd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d836291e14d04839fda52ddbea08a6d = $(`<div id="html_0d836291e14d04839fda52ddbea08a6d" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P9765</h4>             <p style="margin: 3px 0"><strong>Address:</strong> SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_3bffaec0f3a07686fffb6b5c8e973abd.setContent(html_0d836291e14d04839fda52ddbea08a6d);
+            
+        
+
+        marker_8c196baf1db494d8fe583675f450c7ab.bindPopup(popup_3bffaec0f3a07686fffb6b5c8e973abd)
+        ;
+
+        
+    
+    
+            marker_8c196baf1db494d8fe583675f450c7ab.bindTooltip(
+                `<div>
+                     ⚠️ P9765 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8c196baf1db494d8fe583675f450c7ab.setIcon(icon_3c42db1e1bd427278d4feca9ad4b14f2);
+            
+    
+            var marker_97ba859712e024792969a1cd946210d1 = L.marker(
+                [1.351975, 103.822695],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_263a10cb221aa4d4f35e4e08193aad53 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec05b7e20846c3305c03d9c7368dd585 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a97605c8a368a38f1598bcc5cb84357 = $(`<div id="html_8a97605c8a368a38f1598bcc5cb84357" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P9766</h4>             <p style="margin: 3px 0"><strong>Address:</strong> SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_ec05b7e20846c3305c03d9c7368dd585.setContent(html_8a97605c8a368a38f1598bcc5cb84357);
+            
+        
+
+        marker_97ba859712e024792969a1cd946210d1.bindPopup(popup_ec05b7e20846c3305c03d9c7368dd585)
+        ;
+
+        
+    
+    
+            marker_97ba859712e024792969a1cd946210d1.bindTooltip(
+                `<div>
+                     ⚠️ P9766 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_97ba859712e024792969a1cd946210d1.setIcon(icon_263a10cb221aa4d4f35e4e08193aad53);
+            
+    
+            var marker_cd35446846086ac528d6e4b0803231bd = L.marker(
+                [1.353038, 103.819604],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_3e06ad9816f71b2c13700597df774b2a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_57585ef1ef72f4334225f1a7080d284d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5241fe3df62eadf296ea6f7a607f690 = $(`<div id="html_f5241fe3df62eadf296ea6f7a607f690" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P9767</h4>             <p style="margin: 3px 0"><strong>Address:</strong> SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_57585ef1ef72f4334225f1a7080d284d.setContent(html_f5241fe3df62eadf296ea6f7a607f690);
+            
+        
+
+        marker_cd35446846086ac528d6e4b0803231bd.bindPopup(popup_57585ef1ef72f4334225f1a7080d284d)
+        ;
+
+        
+    
+    
+            marker_cd35446846086ac528d6e4b0803231bd.bindTooltip(
+                `<div>
+                     ⚠️ P9767 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cd35446846086ac528d6e4b0803231bd.setIcon(icon_3e06ad9816f71b2c13700597df774b2a);
+            
+    
+            var marker_d344e9b17591dbb262ca2899d663fc9a = L.marker(
+                [1.380691, 103.837575],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_8070ab60d3547539766396efdf63ac9b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1443ca531f58d2c42c34a51ba5baa85f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8623ef3b9175160e06867715b76b3258 = $(`<div id="html_8623ef3b9175160e06867715b76b3258" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q1619</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Church of The Immaculate Heart of Mary, 24 Highland Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_1443ca531f58d2c42c34a51ba5baa85f.setContent(html_8623ef3b9175160e06867715b76b3258);
+            
+        
+
+        marker_d344e9b17591dbb262ca2899d663fc9a.bindPopup(popup_1443ca531f58d2c42c34a51ba5baa85f)
+        ;
+
+        
+    
+    
+            marker_d344e9b17591dbb262ca2899d663fc9a.bindTooltip(
+                `<div>
+                     ⚠️ Q1619 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d344e9b17591dbb262ca2899d663fc9a.setIcon(icon_8070ab60d3547539766396efdf63ac9b);
+            
+    
+            var marker_e2ecb310d84bc217079936ce90bcb6e9 = L.marker(
+                [1.349715, 103.821796],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_cacd4bbaa0b1c5990274980a7592b82f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7dbbb30f55be4232613fae026f5c3d41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65a51a61d03600fb018b552a725acffb = $(`<div id="html_65a51a61d03600fb018b552a725acffb" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q3548</h4>             <p style="margin: 3px 0"><strong>Address:</strong> St Andrews Cathedral, 11 St Andrew's Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_7dbbb30f55be4232613fae026f5c3d41.setContent(html_65a51a61d03600fb018b552a725acffb);
+            
+        
+
+        marker_e2ecb310d84bc217079936ce90bcb6e9.bindPopup(popup_7dbbb30f55be4232613fae026f5c3d41)
+        ;
+
+        
+    
+    
+            marker_e2ecb310d84bc217079936ce90bcb6e9.bindTooltip(
+                `<div>
+                     ⚠️ Q3548 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e2ecb310d84bc217079936ce90bcb6e9.setIcon(icon_cacd4bbaa0b1c5990274980a7592b82f);
+            
+    
+            var marker_0ef3c424be55bc0b7dfbd9925a8462d7 = L.marker(
+                [1.342056, 103.943521],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_cda7a8fda5dd6a11e8e45ec02b587a4d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ef95122dc19cf9a3e7371a78a43e9d00 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_526fee53032cc1551f64753227c100ab = $(`<div id="html_526fee53032cc1551f64753227c100ab" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q0753</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 549 Bedok North Ave 1 #11-452</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_ef95122dc19cf9a3e7371a78a43e9d00.setContent(html_526fee53032cc1551f64753227c100ab);
+            
+        
+
+        marker_0ef3c424be55bc0b7dfbd9925a8462d7.bindPopup(popup_ef95122dc19cf9a3e7371a78a43e9d00)
+        ;
+
+        
+    
+    
+            marker_0ef3c424be55bc0b7dfbd9925a8462d7.bindTooltip(
+                `<div>
+                     ⚠️ Q0753 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0ef3c424be55bc0b7dfbd9925a8462d7.setIcon(icon_cda7a8fda5dd6a11e8e45ec02b587a4d);
+            
+    
+            var marker_673b4bb2f94f170ed9cb769aed261df7 = L.marker(
+                [1.390999, 103.836451],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_2b0f7f0d192dfbec571551748c135917 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5bf69d225e4cc8da08b8739483079274 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65d290d55be9debd4d83a65c1ee942bb = $(`<div id="html_65d290d55be9debd4d83a65c1ee942bb" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q3247</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Church of Our Redeemer, 30 Duke's Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_5bf69d225e4cc8da08b8739483079274.setContent(html_65d290d55be9debd4d83a65c1ee942bb);
+            
+        
+
+        marker_673b4bb2f94f170ed9cb769aed261df7.bindPopup(popup_5bf69d225e4cc8da08b8739483079274)
+        ;
+
+        
+    
+    
+            marker_673b4bb2f94f170ed9cb769aed261df7.bindTooltip(
+                `<div>
+                     ⚠️ Q3247 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_673b4bb2f94f170ed9cb769aed261df7.setIcon(icon_2b0f7f0d192dfbec571551748c135917);
+            
+    
+            var marker_75fc1fc7a6d8257c22b0c6806ef0665b = L.marker(
+                [1.337105, 103.699836],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_1dac18e0c5215c84bf10fa57e8eebb6e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f5ca6c30504ac1094056d1b8e51c54f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_59b65738df08aa5a846adbcba5e7d0d7 = $(`<div id="html_59b65738df08aa5a846adbcba5e7d0d7" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ N5760</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 59 Mohamed Sultan Road, #02-08/09, Sultan Link</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_2f5ca6c30504ac1094056d1b8e51c54f.setContent(html_59b65738df08aa5a846adbcba5e7d0d7);
+            
+        
+
+        marker_75fc1fc7a6d8257c22b0c6806ef0665b.bindPopup(popup_2f5ca6c30504ac1094056d1b8e51c54f)
+        ;
+
+        
+    
+    
+            marker_75fc1fc7a6d8257c22b0c6806ef0665b.bindTooltip(
+                `<div>
+                     ⚠️ N5760 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_75fc1fc7a6d8257c22b0c6806ef0665b.setIcon(icon_1dac18e0c5215c84bf10fa57e8eebb6e);
+            
+    
+            var marker_38a51059110cd97a574cca34897a5bd2 = L.marker(
+                [1.342616, 103.941824],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_ea9090f9c4c7f1d65316ff8b2fb91128 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc6c5cc1ae348ab65a37239159b53a56 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef4bd0e41a84ffc6c1e2479f36ed9464 = $(`<div id="html_ef4bd0e41a84ffc6c1e2479f36ed9464" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q4974</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 300 Bedok North Ave 3, Bethesda (Bedok-Tampines) Church</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_cc6c5cc1ae348ab65a37239159b53a56.setContent(html_ef4bd0e41a84ffc6c1e2479f36ed9464);
+            
+        
+
+        marker_38a51059110cd97a574cca34897a5bd2.bindPopup(popup_cc6c5cc1ae348ab65a37239159b53a56)
+        ;
+
+        
+    
+    
+            marker_38a51059110cd97a574cca34897a5bd2.bindTooltip(
+                `<div>
+                     ⚠️ Q4974 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_38a51059110cd97a574cca34897a5bd2.setIcon(icon_ea9090f9c4c7f1d65316ff8b2fb91128);
+            
+    
+            var marker_3b024ef6bd4973b6e953d4da022a8204 = L.marker(
+                [1.323373, 103.895718],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_67929efaed3881c363226b6215315e80 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_313c10786eb5ae950110a15e05b0e2d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bdc61ff22c29d105762327f933ede22 = $(`<div id="html_9bdc61ff22c29d105762327f933ede22" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P4436</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 17 Mattar Rd, Grace Baptist Church</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_313c10786eb5ae950110a15e05b0e2d1.setContent(html_9bdc61ff22c29d105762327f933ede22);
+            
+        
+
+        marker_3b024ef6bd4973b6e953d4da022a8204.bindPopup(popup_313c10786eb5ae950110a15e05b0e2d1)
+        ;
+
+        
+    
+    
+            marker_3b024ef6bd4973b6e953d4da022a8204.bindTooltip(
+                `<div>
+                     ⚠️ P4436 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3b024ef6bd4973b6e953d4da022a8204.setIcon(icon_67929efaed3881c363226b6215315e80);
+            
+    
+            var marker_23aea1b90448f8c8369371959531e197 = L.marker(
+                [1.390311, 103.836225],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_2c13206dc7584ee6e7331e2d337fbeec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71edeb28df9c20fd58296512f904ac00 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5e625de2bf63d9efafb078611db8a06 = $(`<div id="html_e5e625de2bf63d9efafb078611db8a06" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ O1841</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Lutheran Church Of Our Redeemer, 30 Duke's Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_71edeb28df9c20fd58296512f904ac00.setContent(html_e5e625de2bf63d9efafb078611db8a06);
+            
+        
+
+        marker_23aea1b90448f8c8369371959531e197.bindPopup(popup_71edeb28df9c20fd58296512f904ac00)
+        ;
+
+        
+    
+    
+            marker_23aea1b90448f8c8369371959531e197.bindTooltip(
+                `<div>
+                     ⚠️ O1841 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_23aea1b90448f8c8369371959531e197.setIcon(icon_2c13206dc7584ee6e7331e2d337fbeec);
+            
+    
+            var marker_aacd9858cfd4d395252929031d0fce98 = L.marker(
+                [1.340125, 103.744654],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_afd41400c7997c60e2cfc502f1dd0bf9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97ceb06af1e9d00c9a827aeeaf0ecaab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b8baaafbdbb990b22c6e8300acba674 = $(`<div id="html_8b8baaafbdbb990b22c6e8300acba674" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q1662</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 51 Cuppage Rd, #10-12</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_97ceb06af1e9d00c9a827aeeaf0ecaab.setContent(html_8b8baaafbdbb990b22c6e8300acba674);
+            
+        
+
+        marker_aacd9858cfd4d395252929031d0fce98.bindPopup(popup_97ceb06af1e9d00c9a827aeeaf0ecaab)
+        ;
+
+        
+    
+    
+            marker_aacd9858cfd4d395252929031d0fce98.bindTooltip(
+                `<div>
+                     ⚠️ Q1662 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aacd9858cfd4d395252929031d0fce98.setIcon(icon_afd41400c7997c60e2cfc502f1dd0bf9);
+            
+    
+            var marker_37579f0608450caa948751084cccc172 = L.marker(
+                [1.367187, 103.845212],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_8df4432d806be93e31273c6f64288bd1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d0f1258ced17fc9b449dbb9b573c86b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2a19c20acd7294ee490702cc32200376 = $(`<div id="html_2a19c20acd7294ee490702cc32200376" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P5232</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 4 How Sun Dr, Bartley Christian Church</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_0d0f1258ced17fc9b449dbb9b573c86b.setContent(html_2a19c20acd7294ee490702cc32200376);
+            
+        
+
+        marker_37579f0608450caa948751084cccc172.bindPopup(popup_0d0f1258ced17fc9b449dbb9b573c86b)
+        ;
+
+        
+    
+    
+            marker_37579f0608450caa948751084cccc172.bindTooltip(
+                `<div>
+                     ⚠️ P5232 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_37579f0608450caa948751084cccc172.setIcon(icon_8df4432d806be93e31273c6f64288bd1);
+            
+    
+            var marker_97fa279c23e17e1d79defa5ce5582436 = L.marker(
+                [1.319553, 103.894827],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_62904a4ab43a9909214ec52d79513997 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_737941ef9ad8e5db1d1134548a9cf0b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8070971ce04f3eabe7697a1d14b3131a = $(`<div id="html_8070971ce04f3eabe7697a1d14b3131a" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ O9178</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 149 Sims Dr</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate, early_setup</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_737941ef9ad8e5db1d1134548a9cf0b3.setContent(html_8070971ce04f3eabe7697a1d14b3131a);
+            
+        
+
+        marker_97fa279c23e17e1d79defa5ce5582436.bindPopup(popup_737941ef9ad8e5db1d1134548a9cf0b3)
+        ;
+
+        
+    
+    
+            marker_97fa279c23e17e1d79defa5ce5582436.bindTooltip(
+                `<div>
+                     ⚠️ O9178 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_97fa279c23e17e1d79defa5ce5582436.setIcon(icon_62904a4ab43a9909214ec52d79513997);
+            
+    
+            var marker_707d3403973276f95ca5a1a570b76ef8 = L.marker(
+                [1.311846, 103.902246],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_16caadd97a33b9ddd6bbc4d8d575d274 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_53844f0085f37ed7e89bc59a0dd7c715 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4af6ed999470c9a2e1dc1bb247e4477 = $(`<div id="html_e4af6ed999470c9a2e1dc1bb247e4477" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P7916</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 156B Stirling Rd, True Way Presbyterian Church</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_53844f0085f37ed7e89bc59a0dd7c715.setContent(html_e4af6ed999470c9a2e1dc1bb247e4477);
+            
+        
+
+        marker_707d3403973276f95ca5a1a570b76ef8.bindPopup(popup_53844f0085f37ed7e89bc59a0dd7c715)
+        ;
+
+        
+    
+    
+            marker_707d3403973276f95ca5a1a570b76ef8.bindTooltip(
+                `<div>
+                     ⚠️ P7916 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_707d3403973276f95ca5a1a570b76ef8.setIcon(icon_16caadd97a33b9ddd6bbc4d8d575d274);
+            
+    
+            var marker_746ed09dc7463b7450dc3ed0affb27ce = L.marker(
+                [1.370559, 103.8459],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_8570572794e5bdf22fab561165a07221 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f490fdf8ca4c2994e1f403e9e905066f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eea6dea9cc6d2047614ed44cb431c6f2 = $(`<div id="html_eea6dea9cc6d2047614ed44cb431c6f2" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P4347</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Living Sanctuary Brethren Church, 2 Hougang St 22</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_f490fdf8ca4c2994e1f403e9e905066f.setContent(html_eea6dea9cc6d2047614ed44cb431c6f2);
+            
+        
+
+        marker_746ed09dc7463b7450dc3ed0affb27ce.bindPopup(popup_f490fdf8ca4c2994e1f403e9e905066f)
+        ;
+
+        
+    
+    
+            marker_746ed09dc7463b7450dc3ed0affb27ce.bindTooltip(
+                `<div>
+                     ⚠️ P4347 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_746ed09dc7463b7450dc3ed0affb27ce.setIcon(icon_8570572794e5bdf22fab561165a07221);
+            
+    
+            var marker_8169dccb372451262581feed78c10c1d = L.marker(
+                [1.350998, 103.818613],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_ba0be781888da170b726c254758d7c6c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb27dd2ad5e6a5bae48a84625c45ed36 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53c7c1bc8eaf82a764b3a09074f15d83 = $(`<div id="html_53c7c1bc8eaf82a764b3a09074f15d83" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ O9950</h4>             <p style="margin: 3px 0"><strong>Address:</strong> The Legacy at One North, 11 Slim Barracks Rise, #03-01</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_cb27dd2ad5e6a5bae48a84625c45ed36.setContent(html_53c7c1bc8eaf82a764b3a09074f15d83);
+            
+        
+
+        marker_8169dccb372451262581feed78c10c1d.bindPopup(popup_cb27dd2ad5e6a5bae48a84625c45ed36)
+        ;
+
+        
+    
+    
+            marker_8169dccb372451262581feed78c10c1d.bindTooltip(
+                `<div>
+                     ⚠️ O9950 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8169dccb372451262581feed78c10c1d.setIcon(icon_ba0be781888da170b726c254758d7c6c);
+            
+    
+            var marker_7e21d4d55c4fb42306ed06c2ff1d5791 = L.marker(
+                [1.3521, 103.8198],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_3a04b4e013f700f1881625eebb0bd6c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_821dc0445c67e67525dd35d24bb03b81 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6689d7ee3bcc640341db92083405c3d6 = $(`<div id="html_6689d7ee3bcc640341db92083405c3d6" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P6567</h4>             <p style="margin: 3px 0"><strong>Address:</strong> TBC</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_821dc0445c67e67525dd35d24bb03b81.setContent(html_6689d7ee3bcc640341db92083405c3d6);
+            
+        
+
+        marker_7e21d4d55c4fb42306ed06c2ff1d5791.bindPopup(popup_821dc0445c67e67525dd35d24bb03b81)
+        ;
+
+        
+    
+    
+            marker_7e21d4d55c4fb42306ed06c2ff1d5791.bindTooltip(
+                `<div>
+                     ⚠️ P6567 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7e21d4d55c4fb42306ed06c2ff1d5791.setIcon(icon_3a04b4e013f700f1881625eebb0bd6c6);
+            
+    
+            var marker_e2576ec6752c4e5f472a6299766c3e60 = L.marker(
+                [1.339168, 103.696181],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_85b5aa456c5730756eb091815a9ad7f2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_78fe537fb35963899944f2fba0e0b1df = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b326e356fa972b6cd5b491f1c935c7b = $(`<div id="html_5b326e356fa972b6cd5b491f1c935c7b" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P9688</h4>             <p style="margin: 3px 0"><strong>Address:</strong> ARPC Tengah, 200 Bukit Batok West Ave. 5</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_78fe537fb35963899944f2fba0e0b1df.setContent(html_5b326e356fa972b6cd5b491f1c935c7b);
+            
+        
+
+        marker_e2576ec6752c4e5f472a6299766c3e60.bindPopup(popup_78fe537fb35963899944f2fba0e0b1df)
+        ;
+
+        
+    
+    
+            marker_e2576ec6752c4e5f472a6299766c3e60.bindTooltip(
+                `<div>
+                     ⚠️ P9688 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e2576ec6752c4e5f472a6299766c3e60.setIcon(icon_85b5aa456c5730756eb091815a9ad7f2);
+            
+    
+            var marker_b4caa2a4a51bbb4990e6238e0c614a14 = L.marker(
+                [1.391777, 103.841615],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_0866c07d6c2570762f22eede7cad9214 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4c266e47c10ef113ae4362d99b54c26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce5c073326073802cbca5c3bba102df2 = $(`<div id="html_ce5c073326073802cbca5c3bba102df2" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q3490</h4>             <p style="margin: 3px 0"><strong>Address:</strong> International Baptist Church (IBC Singapore), 81 King's Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_e4c266e47c10ef113ae4362d99b54c26.setContent(html_ce5c073326073802cbca5c3bba102df2);
+            
+        
+
+        marker_b4caa2a4a51bbb4990e6238e0c614a14.bindPopup(popup_e4c266e47c10ef113ae4362d99b54c26)
+        ;
+
+        
+    
+    
+            marker_b4caa2a4a51bbb4990e6238e0c614a14.bindTooltip(
+                `<div>
+                     ⚠️ Q3490 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b4caa2a4a51bbb4990e6238e0c614a14.setIcon(icon_0866c07d6c2570762f22eede7cad9214);
+            
+    
+            var marker_5d08d5455f1bf425736904cfa3b7f9fb = L.marker(
+                [1.3521, 103.8198],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_2ae185360d6782f21cc1eea8e138efc3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c2f493a1aaa5bc74381c12f41ecefc31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e6fd68ffe9c74493da994f0fe65af12b = $(`<div id="html_e6fd68ffe9c74493da994f0fe65af12b" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ K9492</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 7 Andover Road, CSC @ Changi Fairy Point 7</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_c2f493a1aaa5bc74381c12f41ecefc31.setContent(html_e6fd68ffe9c74493da994f0fe65af12b);
+            
+        
+
+        marker_5d08d5455f1bf425736904cfa3b7f9fb.bindPopup(popup_c2f493a1aaa5bc74381c12f41ecefc31)
+        ;
+
+        
+    
+    
+            marker_5d08d5455f1bf425736904cfa3b7f9fb.bindTooltip(
+                `<div>
+                     ⚠️ K9492 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5d08d5455f1bf425736904cfa3b7f9fb.setIcon(icon_2ae185360d6782f21cc1eea8e138efc3);
+            
+    
+            var marker_f861cf99850a5d7305e72d572d8686f0 = L.marker(
+                [1.368984, 103.850357],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_aeff7520d0a09942715779038ac8dcf7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8fc5361ac81ec5fd7a20d7cee33c0f6c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_938958f3e66e03bfe87e49cca7d1f90c = $(`<div id="html_938958f3e66e03bfe87e49cca7d1f90c" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q4282</h4>             <p style="margin: 3px 0"><strong>Address:</strong> IMH Boardroom, Level 2, Annex Block 10 Buangkok View, Buangkok Green Medical Park</p>             <p style="margin: 3px 0"><strong>Tags:</strong> None</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_8fc5361ac81ec5fd7a20d7cee33c0f6c.setContent(html_938958f3e66e03bfe87e49cca7d1f90c);
+            
+        
+
+        marker_f861cf99850a5d7305e72d572d8686f0.bindPopup(popup_8fc5361ac81ec5fd7a20d7cee33c0f6c)
+        ;
+
+        
+    
+    
+            marker_f861cf99850a5d7305e72d572d8686f0.bindTooltip(
+                `<div>
+                     ⚠️ Q4282 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f861cf99850a5d7305e72d572d8686f0.setIcon(icon_aeff7520d0a09942715779038ac8dcf7);
+            
+    
+            var marker_75346eccbbf2e15f99d047288002ea4b = L.marker(
+                [1.35245, 103.822681],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_b56f3106519e3e38f5dce6c3340e5034 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_676c1a25174e7e148375a6ee211da8f0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0deae6c1ba254ed995e4fa45547ef13 = $(`<div id="html_a0deae6c1ba254ed995e4fa45547ef13" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ O4398</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 20 Biopolis Way #08-01 Centros Building</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate, early_setup</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_676c1a25174e7e148375a6ee211da8f0.setContent(html_a0deae6c1ba254ed995e4fa45547ef13);
+            
+        
+
+        marker_75346eccbbf2e15f99d047288002ea4b.bindPopup(popup_676c1a25174e7e148375a6ee211da8f0)
+        ;
+
+        
+    
+    
+            marker_75346eccbbf2e15f99d047288002ea4b.bindTooltip(
+                `<div>
+                     ⚠️ O4398 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_75346eccbbf2e15f99d047288002ea4b.setIcon(icon_b56f3106519e3e38f5dce6c3340e5034);
+            
+    
+            var marker_39ae9d0d5a4c25d077a991f644637230 = L.marker(
+                [1.350828, 103.81735],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_afebf5c41e4c2c86de9ae4e4cb76385f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad1e8737bf17de443c5b6e689df69086 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_814baa3e0df139e066b303ac125ca1ab = $(`<div id="html_814baa3e0df139e066b303ac125ca1ab" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ O4397</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 20 Biopolis Way #08-01 Centros Building</p>             <p style="margin: 3px 0"><strong>Tags:</strong> corporate, early_setup</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_ad1e8737bf17de443c5b6e689df69086.setContent(html_814baa3e0df139e066b303ac125ca1ab);
+            
+        
+
+        marker_39ae9d0d5a4c25d077a991f644637230.bindPopup(popup_ad1e8737bf17de443c5b6e689df69086)
+        ;
+
+        
+    
+    
+            marker_39ae9d0d5a4c25d077a991f644637230.bindTooltip(
+                `<div>
+                     ⚠️ O4397 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_39ae9d0d5a4c25d077a991f644637230.setIcon(icon_afebf5c41e4c2c86de9ae4e4cb76385f);
+            
+    
+            var marker_512f335a225aacb2713a569a5ff68852 = L.marker(
+                [1.345937, 103.944735],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_2634cfbde9180b11dbf647e1fdf42b8c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c3bbebd1c811473b413bbc12e58cf07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab9d6066337fbfc86f2f54a22921dff1 = $(`<div id="html_ab9d6066337fbfc86f2f54a22921dff1" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q2717</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Bethesda Bedok-Tampines Church, 300 Bedok North Ave 3</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_7c3bbebd1c811473b413bbc12e58cf07.setContent(html_ab9d6066337fbfc86f2f54a22921dff1);
+            
+        
+
+        marker_512f335a225aacb2713a569a5ff68852.bindPopup(popup_7c3bbebd1c811473b413bbc12e58cf07)
+        ;
+
+        
+    
+    
+            marker_512f335a225aacb2713a569a5ff68852.bindTooltip(
+                `<div>
+                     ⚠️ Q2717 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_512f335a225aacb2713a569a5ff68852.setIcon(icon_2634cfbde9180b11dbf647e1fdf42b8c);
+            
+    
+            var marker_020d7d1f990c09f13a9bc691b61ecbd9 = L.marker(
+                [1.352365, 103.819967],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_0024168e04e6af2383f61b35c2110210 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eebfe8f48cee5451f6d08f2f6f8e6fe6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96bc03f655425e0e0ed3aafdb2646190 = $(`<div id="html_96bc03f655425e0e0ed3aafdb2646190" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P6984</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Holy Trinity church, 1 Hamilton Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_eebfe8f48cee5451f6d08f2f6f8e6fe6.setContent(html_96bc03f655425e0e0ed3aafdb2646190);
+            
+        
+
+        marker_020d7d1f990c09f13a9bc691b61ecbd9.bindPopup(popup_eebfe8f48cee5451f6d08f2f6f8e6fe6)
+        ;
+
+        
+    
+    
+            marker_020d7d1f990c09f13a9bc691b61ecbd9.bindTooltip(
+                `<div>
+                     ⚠️ P6984 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_020d7d1f990c09f13a9bc691b61ecbd9.setIcon(icon_0024168e04e6af2383f61b35c2110210);
+            
+    
+            var marker_5246a6fb2e967bb1630e48f05571fc08 = L.marker(
+                [1.352382, 103.81813],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_2891aee18c5ab0c066c9933f319dc780 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_42bf280af1155d40c9c0114721596776 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4b07223d971b01b2a088710314174f6 = $(`<div id="html_e4b07223d971b01b2a088710314174f6" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P6985</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Holy Trinity church, 1 Hamilton Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_42bf280af1155d40c9c0114721596776.setContent(html_e4b07223d971b01b2a088710314174f6);
+            
+        
+
+        marker_5246a6fb2e967bb1630e48f05571fc08.bindPopup(popup_42bf280af1155d40c9c0114721596776)
+        ;
+
+        
+    
+    
+            marker_5246a6fb2e967bb1630e48f05571fc08.bindTooltip(
+                `<div>
+                     ⚠️ P6985 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5246a6fb2e967bb1630e48f05571fc08.setIcon(icon_2891aee18c5ab0c066c9933f319dc780);
+            
+    
+            var marker_74c456777cf10111dfebcdbbb66f0173 = L.marker(
+                [1.43843, 103.786995],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_519b82fbbde54f8592cab65ed7bbcad0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb28d633a05941e2fb3235f31e0d2ee7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_41bb36eba0c27551212f9e501eaca8cf = $(`<div id="html_41bb36eba0c27551212f9e501eaca8cf" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ N4492</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Yishun Christian Church, 10 Yishun Ave 5</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_cb28d633a05941e2fb3235f31e0d2ee7.setContent(html_41bb36eba0c27551212f9e501eaca8cf);
+            
+        
+
+        marker_74c456777cf10111dfebcdbbb66f0173.bindPopup(popup_cb28d633a05941e2fb3235f31e0d2ee7)
+        ;
+
+        
+    
+    
+            marker_74c456777cf10111dfebcdbbb66f0173.bindTooltip(
+                `<div>
+                     ⚠️ N4492 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_74c456777cf10111dfebcdbbb66f0173.setIcon(icon_519b82fbbde54f8592cab65ed7bbcad0);
+            
+    
+            var marker_932042a3bb45c500baea097b5a54b628 = L.marker(
+                [1.447882, 103.822758],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_0e9d3f71de83910b3ca2591b40be58d5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_619974c1a363aa3394fba67183866066 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bc0c8d4b57ba5012fb97f5cf5052de9 = $(`<div id="html_8bc0c8d4b57ba5012fb97f5cf5052de9" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q1717</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 301 Yio Chu Kang Rd, Church of St Vincent De Paul</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_619974c1a363aa3394fba67183866066.setContent(html_8bc0c8d4b57ba5012fb97f5cf5052de9);
+            
+        
+
+        marker_932042a3bb45c500baea097b5a54b628.bindPopup(popup_619974c1a363aa3394fba67183866066)
+        ;
+
+        
+    
+    
+            marker_932042a3bb45c500baea097b5a54b628.bindTooltip(
+                `<div>
+                     ⚠️ Q1717 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_932042a3bb45c500baea097b5a54b628.setIcon(icon_0e9d3f71de83910b3ca2591b40be58d5);
+            
+    
+            var marker_6e382747966b9e79d5a1c3e5458f22f9 = L.marker(
+                [1.391368, 103.837818],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_b2333db40af83a38d9a6547124ce705d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f9b2f81b2ab8307c675d1832b61fea50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1775a94f36fb623f673b7dffa0700997 = $(`<div id="html_1775a94f36fb623f673b7dffa0700997" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q5082</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Lutheran Church of Our Redeemer, 30 Duke's Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_f9b2f81b2ab8307c675d1832b61fea50.setContent(html_1775a94f36fb623f673b7dffa0700997);
+            
+        
+
+        marker_6e382747966b9e79d5a1c3e5458f22f9.bindPopup(popup_f9b2f81b2ab8307c675d1832b61fea50)
+        ;
+
+        
+    
+    
+            marker_6e382747966b9e79d5a1c3e5458f22f9.bindTooltip(
+                `<div>
+                     ⚠️ Q5082 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6e382747966b9e79d5a1c3e5458f22f9.setIcon(icon_b2333db40af83a38d9a6547124ce705d);
+            
+    
+            var marker_57e85a9c14150a4ee6267c348904fda5 = L.marker(
+                [1.305601, 103.84904],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_d572e63a2ecfa3b602262fcb99009a91 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1f01fc04873dd209370c34a406f17954 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff51825a8963f60819b2402b78c7f7ed = $(`<div id="html_ff51825a8963f60819b2402b78c7f7ed" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ Q4627</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Church of St Teresa Singapore, 510 Kampong Bahru Rd</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_1f01fc04873dd209370c34a406f17954.setContent(html_ff51825a8963f60819b2402b78c7f7ed);
+            
+        
+
+        marker_57e85a9c14150a4ee6267c348904fda5.bindPopup(popup_1f01fc04873dd209370c34a406f17954)
+        ;
+
+        
+    
+    
+            marker_57e85a9c14150a4ee6267c348904fda5.bindTooltip(
+                `<div>
+                     ⚠️ Q4627 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_57e85a9c14150a4ee6267c348904fda5.setIcon(icon_d572e63a2ecfa3b602262fcb99009a91);
+            
+    
+            var marker_76c02d9894982a421bb7cee2e3e45fbd = L.marker(
+                [1.33688, 103.766541],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_164789904faea2a16635da719bf3a7a2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb994b40dadf5daaf96449f9c2c1aad9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_698c9ba9eb938804a9aed63866da26b8 = $(`<div id="html_698c9ba9eb938804a9aed63866da26b8" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P7015</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Jurong Christian Church, 2 Tah Ching Road</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_cb994b40dadf5daaf96449f9c2c1aad9.setContent(html_698c9ba9eb938804a9aed63866da26b8);
+            
+        
+
+        marker_76c02d9894982a421bb7cee2e3e45fbd.bindPopup(popup_cb994b40dadf5daaf96449f9c2c1aad9)
+        ;
+
+        
+    
+    
+            marker_76c02d9894982a421bb7cee2e3e45fbd.bindTooltip(
+                `<div>
+                     ⚠️ P7015 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76c02d9894982a421bb7cee2e3e45fbd.setIcon(icon_164789904faea2a16635da719bf3a7a2);
+            
+    
+            var marker_e3d53be17ff7358cf16074198497a836 = L.marker(
+                [1.372587, 103.853624],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_577dfdb0b3dd91363d83e1e968b4afec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ea7f0db5e051a7613bd6c5b60741d2e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d545862b8c67f061037c7094504b0dc3 = $(`<div id="html_d545862b8c67f061037c7094504b0dc3" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P8887</h4>             <p style="margin: 3px 0"><strong>Address:</strong> Bukit Arang Church, 114 Serangoon Ave 3</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding, vip</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_ea7f0db5e051a7613bd6c5b60741d2e5.setContent(html_d545862b8c67f061037c7094504b0dc3);
+            
+        
+
+        marker_e3d53be17ff7358cf16074198497a836.bindPopup(popup_ea7f0db5e051a7613bd6c5b60741d2e5)
+        ;
+
+        
+    
+    
+            marker_e3d53be17ff7358cf16074198497a836.bindTooltip(
+                `<div>
+                     ⚠️ P8887 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e3d53be17ff7358cf16074198497a836.setIcon(icon_577dfdb0b3dd91363d83e1e968b4afec);
+            
+    
+            var marker_a2dba9d7e4454e91a8c09219007849f0 = L.marker(
+                [1.357511, 103.762041],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_c31a89ab619138a33650a57d7d62055b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dafb8074def5ef37dbfbab6bd379fe47 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffbdbdbefeab970937dbb578eb35453c = $(`<div id="html_ffbdbdbefeab970937dbb578eb35453c" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ N8980</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 28 Choa Chu Kang Dr, Safra Choa Chu Kang</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_dafb8074def5ef37dbfbab6bd379fe47.setContent(html_ffbdbdbefeab970937dbb578eb35453c);
+            
+        
+
+        marker_a2dba9d7e4454e91a8c09219007849f0.bindPopup(popup_dafb8074def5ef37dbfbab6bd379fe47)
+        ;
+
+        
+    
+    
+            marker_a2dba9d7e4454e91a8c09219007849f0.bindTooltip(
+                `<div>
+                     ⚠️ N8980 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a2dba9d7e4454e91a8c09219007849f0.setIcon(icon_c31a89ab619138a33650a57d7d62055b);
+            
+    
+            var marker_25eefb103a5e4670a05026c576c117ac = L.marker(
+                [1.44596, 103.819692],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_6930e8c19bbcf3d7ac0916ddc099b74e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ebe89b094e3cadc96c20cf0ecc472682 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3dff3a31cb2d8fb31ae5d06a5783f89f = $(`<div id="html_3dff3a31cb2d8fb31ae5d06a5783f89f" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ O3425</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 301 Yio Chu Kang Rd, Church of St. Vincent de Paul</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_ebe89b094e3cadc96c20cf0ecc472682.setContent(html_3dff3a31cb2d8fb31ae5d06a5783f89f);
+            
+        
+
+        marker_25eefb103a5e4670a05026c576c117ac.bindPopup(popup_ebe89b094e3cadc96c20cf0ecc472682)
+        ;
+
+        
+    
+    
+            marker_25eefb103a5e4670a05026c576c117ac.bindTooltip(
+                `<div>
+                     ⚠️ O3425 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_25eefb103a5e4670a05026c576c117ac.setIcon(icon_6930e8c19bbcf3d7ac0916ddc099b74e);
+            
+    
+            var marker_7b59143951ea9a44c5619145d5fa40db = L.marker(
+                [1.383624, 103.838619],
+                {
+}
+            ).addTo(feature_group_b9a4bdfdfb77e776358a51e4bcd087d2);
+        
+    
+            var icon_d52994abb251e13e47468596b0a3659c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6c3bd45e62f8297b1ca403f94d3998c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d485e998867d0a9bd80395980da0fa5 = $(`<div id="html_4d485e998867d0a9bd80395980da0fa5" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px">             <h4 style="margin: 0 0 5px 0; color: red">⚠️ P9890</h4>             <p style="margin: 3px 0"><strong>Address:</strong> 24 Highland Rd, Immaculate Heart of Mary Catholic Church (Highland Road)</p>             <p style="margin: 3px 0"><strong>Tags:</strong> wedding</p>             <hr style="margin: 5px 0">             <p style="margin: 3px 0; color: red"><strong>Unallocated:</strong></p>             <p style="margin: 3px 0; font-size: 12px">Time conflicts or regional constraints prevented allocation</p>         </div>         </div>`)[0];
+                popup_b6c3bd45e62f8297b1ca403f94d3998c.setContent(html_4d485e998867d0a9bd80395980da0fa5);
+            
+        
+
+        marker_7b59143951ea9a44c5619145d5fa40db.bindPopup(popup_b6c3bd45e62f8297b1ca403f94d3998c)
+        ;
+
+        
+    
+    
+            marker_7b59143951ea9a44c5619145d5fa40db.bindTooltip(
+                `<div>
+                     ⚠️ P9890 - UNALLOCATED
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b59143951ea9a44c5619145d5fa40db.setIcon(icon_d52994abb251e13e47468596b0a3659c);
+            
+    
+            feature_group_b9a4bdfdfb77e776358a51e4bcd087d2.addTo(map_f7ea8e60f08401c328495c3325c3c951);
+        
+    
+            var layer_control_4d3ac338911e0b11b0969dc81c3c3d57_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_a3192464f82b035825a50621c0d1f6d8,
+                },
+                overlays :  {
+                    "Jun Iyer (DRV-026) - 2 orders" : feature_group_c70b3892bbe13bf114c675d59be75c8c,
+                    "Karthik Koh (DRV-012) - 2 orders" : feature_group_30d378cd7a494c7d4b57691f1cbbb269,
+                    "Hock Mahmud (DRV-001) - 2 orders" : feature_group_6d2aeaf66320898507c8155909571743,
+                    "Wei Teo (DRV-006) - 2 orders" : feature_group_95e2d96a08b77713914168438a885ef2,
+                    "Farah Low (DRV-013) - 2 orders" : feature_group_b16b3ef9e49b35430aa4794d62c5eaf6,
+                    "Lakshmi Naidu (DRV-008) - 1 orders" : feature_group_62e86058635df23ddcc4c52ccb8ea729,
+                    "Keng Chua (DRV-064) - 1 orders" : feature_group_55e4a8135e707af597665d727aa04bfc,
+                    "Kumar Koh (DRV-011) - 1 orders" : feature_group_e5c9cc81140710f38f7d8e7d300b6555,
+                    "Jie Chen (DRV-020) - 1 orders" : feature_group_e7a03e2b29ca753e6413eda8e569bd6a,
+                    "Hakim Osman (DRV-002) - 1 orders" : feature_group_c93a643a026f8b440f3df1be83e0ac39,
+                    "Aisyah Chen (DRV-003) - 1 orders" : feature_group_a06684946572c9dce4302ffe351b6a41,
+                    "Hafiz Sharma (DRV-010) - 1 orders" : feature_group_343f93c18eab15b988e3299326c57ab8,
+                    "Keng Low (DRV-022) - 1 orders" : feature_group_edab59fa7d7ada41ed1b119c3e4b318e,
+                    "Yi Sharma (DRV-043) - 1 orders" : feature_group_c12086d3678c21cc0f15be7f6f55e00b,
+                    "Ravi Yusof (DRV-038) - 1 orders" : feature_group_4d6bb279a385b9b3a9c52553df9b156c,
+                    "Sarah Hassan (DRV-007) - 1 orders" : feature_group_d7013102acb9ca77c2adfe4fc2b5b08c,
+                    "Sanjay Menon (DRV-041) - 1 orders" : feature_group_1d36250b5cda5fb73dec417bcb7d7905,
+                    "Muhammad Rodriguez (DRV-025) - 1 orders" : feature_group_ebd2c742eb5ef9153b9989ff771074ea,
+                    "\u26a0\ufe0f Unallocated Orders (38)" : feature_group_b9a4bdfdfb77e776358a51e4bcd087d2,
+                },
+            };
+            let layer_control_4d3ac338911e0b11b0969dc81c3c3d57 = L.control.layers(
+                layer_control_4d3ac338911e0b11b0969dc81c3c3d57_layers.base_layers,
+                layer_control_4d3ac338911e0b11b0969dc81c3c3d57_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_f7ea8e60f08401c328495c3325c3c951);
+
+        
+</script>
+</html>

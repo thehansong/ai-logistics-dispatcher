@@ -60,8 +60,8 @@ Average capacity per driver: 5.0 orders/day
   • Utilization needed: 12.0%
 
 Regional balance issues:
-  central: 8 orders / NO DRIVERS ⚠️ CRITICAL
   None: 0 orders / 50 drivers = 0.0 orders/driver ⚠️ IMBALANCED
+  central: 8 orders / NO DRIVERS ⚠️ CRITICAL
   west: 6 orders / NO DRIVERS ⚠️ CRITICAL
   north: 5 orders / NO DRIVERS ⚠️ CRITICAL
   east: 5 orders / NO DRIVERS ⚠️ CRITICAL
