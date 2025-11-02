@@ -2,6 +2,12 @@
 
 AI-powered catering order allocation system that intelligently assigns delivery orders to drivers based on constraints, priorities, and logistics.
 
+# Test with default data
+python run_allocation.py
+
+# Test with my own other scenario data
+python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/test_scenarios/other_scenarios/drivers.json
+
 ## Quick Start
 
 ### 1. Set Up Virtual Environment
