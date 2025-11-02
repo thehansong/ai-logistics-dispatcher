@@ -2,8 +2,8 @@
 ALLOCATION RUN SUMMARY
 ================================================================================
 
-Run Date: 2025-11-03 04:27:02
-Output Directory: run_2025-11-03_04-26-44
+Run Date: 2025-11-03 04:00:53
+Output Directory: run_2025-11-03_04-00-29
 
 ================================================================================
 KEY METRICS
@@ -11,12 +11,12 @@ KEY METRICS
 
 📊 ALLOCATION SUCCESS
   Total Orders: 30
-  Allocated: 21 (70.0%)
-  Unallocated: 9
-  Drivers Used: 16
+  Allocated: 20 (66.7%)
+  Unallocated: 10
+  Drivers Used: 15
 
 🚚 DRIVER UTILIZATION
-  Average: 23.1%
+  Average: 23.3%
   Top 5 Drivers:
     1. Alice Tan (TEST-DRV-001): 33% - 2 orders
     2. Emily Koh (TEST-DRV-005): 33% - 2 orders
@@ -25,8 +25,8 @@ KEY METRICS
     5. Iris Chua (TEST-DRV-009): 33% - 2 orders
 
 🗺️  REGIONAL DISTRIBUTION
-  south: 5 orders
   central: 4 orders
+  south: 4 orders
   east: 4 orders
   north: 4 orders
   west: 4 orders

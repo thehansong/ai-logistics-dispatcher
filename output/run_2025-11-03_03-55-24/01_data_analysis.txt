@@ -1,0 +1,72 @@
+================================================================================
+DATA ANALYSIS REPORT
+================================================================================
+
+📦 ORDERS ANALYSIS
+Total orders: 60
+
+Orders by tag:
+  wedding: 36
+  vip: 19
+  corporate: 7
+  early_setup: 6
+
+Total wedding orders: 36
+VIP wedding orders: 19
+
+Orders by region:
+  north: 19
+  east: 19
+  central: 12
+  west: 10
+
+Time distribution:
+  morning (before 12pm): 12
+  evening (after 6pm): 42
+  afternoon (12pm-6pm): 6
+
+Orders with TBD address: 3
+
+--------------------------------------------------------------------------------
+
+🚚 DRIVERS ANALYSIS
+Total drivers: 70
+
+Drivers by capability:
+  corporate: 15
+  seminars: 15
+  vip: 14
+  wedding: 14
+  large_events: 14
+
+Wedding-capable drivers: 14
+
+Drivers by preferred region:
+  west: 17
+  north: 16
+  east: 16
+  south: 14
+  central: 7
+
+Total driver capacity: 414 orders/day
+Average capacity per driver: 5.9 orders/day
+
+--------------------------------------------------------------------------------
+
+⚠️  KEY CONSTRAINTS
+  • Wedding orders: 36
+  • Wedding-capable drivers: 14
+  • Ratio: 2.6 orders per wedding driver
+
+  • Total orders: 60
+  • Total capacity: 414
+  • Utilization needed: 14.5%
+
+Regional balance issues:
+  east: 19 orders / 16 drivers = 1.2 orders/driver ⚠️ IMBALANCED
+  south: 0 orders / 14 drivers = 0.0 orders/driver ⚠️ IMBALANCED
+  north: 19 orders / 16 drivers = 1.2 orders/driver ⚠️ IMBALANCED
+  central: 12 orders / 7 drivers = 1.7 orders/driver ⚠️ IMBALANCED
+  west: 10 orders / 17 drivers = 0.6 orders/driver ⚠️ IMBALANCED
+
+================================================================================

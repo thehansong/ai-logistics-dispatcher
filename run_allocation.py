@@ -2,10 +2,15 @@
 """
 Main runner script that executes both data analysis and allocation in one command.
 Creates a timestamped output folder for each run.
+
+Usage:
+    python run_allocation.py
+    python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/test_scenarios/other_scenarios/drivers.json
 """
 
 import sys
 import os
+import argparse
 from pathlib import Path
 from datetime import datetime
 import subprocess
@@ -24,17 +29,16 @@ from io import StringIO
 from collections import defaultdict
 
 
-def run_data_analysis(output_dir: Path):
+def run_data_analysis(output_dir: Path, orders_file: Path, drivers_file: Path):
     """Run data analysis and save to output directory"""
     print("=" * 80)
     print("STEP 1: DATA ANALYSIS")
     print("=" * 80 + "\n")
 
     # Load data
-    data_dir = Path(__file__).parent / 'data'
-    with open(data_dir / 'orders.json', 'r') as f:
+    with open(orders_file, 'r') as f:
         orders = json.load(f)
-    with open(data_dir / 'drivers.json', 'r') as f:
+    with open(drivers_file, 'r') as f:
         drivers = json.load(f)
 
     # Capture output
@@ -116,12 +120,12 @@ def run_data_analysis(output_dir: Path):
     wedding_drivers = [d for d in drivers if 'wedding' in d.get('capabilities', [])]
     print_dual(f"\nWedding-capable drivers: {len(wedding_drivers)}")
 
-    # Count by preferred region
+    # Count by region
     driver_region_count = defaultdict(int)
     for driver in drivers:
-        driver_region_count[driver.get('preferred_region')] += 1
+        driver_region_count[driver.get('region')] += 1
 
-    print_dual("\nDrivers by preferred region:")
+    print_dual("\nDrivers by region:")
     for region, count in sorted(driver_region_count.items(), key=lambda x: x[1], reverse=True):
         print_dual(f"  {region}: {count}")
 
@@ -162,19 +166,15 @@ def run_data_analysis(output_dir: Path):
     print(f"\n✅ Analysis saved to: {analysis_file}\n")
 
 
-def run_allocation(output_dir: Path):
+def run_allocation(output_dir: Path, orders_file: Path, drivers_file: Path):
     """Run allocation and save to output directory"""
     print("\n" + "=" * 80)
     print("STEP 2: AI ALLOCATION")
     print("=" * 80 + "\n")
 
-    # Default file paths
-    orders_file = "data/orders.json"
-    drivers_file = "data/drivers.json"
-
     try:
         # Initialize allocator
-        allocator = DeliveryAllocator(orders_file, drivers_file)
+        allocator = DeliveryAllocator(str(orders_file), str(drivers_file))
 
         # Run allocation
         results = allocator.allocate()
@@ -269,7 +269,80 @@ def create_summary(output_dir: Path, results: dict):
 
 def main():
     """Main entry point"""
+    # Parse arguments
+    parser = argparse.ArgumentParser(
+        description="Smart Delivery Allocator - AI-powered order allocation system"
+    )
+    parser.add_argument(
+        "--orders",
+        type=str,
+        default="data/orders.json",
+        help="Path to orders JSON file (default: data/orders.json)"
+    )
+    parser.add_argument(
+        "--drivers",
+        type=str,
+        default="data/drivers.json",
+        help="Path to drivers JSON file (default: data/drivers.json)"
+    )
+    parser.add_argument(
+        "--prompt",
+        type=str,
+        choices=["conservative", "aggressive"],
+        default=None,
+        help="Prompt strategy: conservative (quality-focused) or aggressive (throughput-focused). Skips interactive prompt selection."
+    )
+    args = parser.parse_args()
+
+    # Interactive prompt selection if not provided via command line
+    if not args.prompt:
+        print("\n" + "=" * 80)
+        print("SELECT PROMPT STRATEGY")
+        print("=" * 80 + "\n")
+        print("Choose allocation strategy:\n")
+        print("  1. CONSERVATIVE (default)")
+        print("     - Quality-focused, more cautious")
+        print("     - Prioritizes regional efficiency and clustering")
+        print("     - May leave some orders unallocated if constraints unclear\n")
+        print("  2. AGGRESSIVE")
+        print("     - Throughput-focused, maximizes allocation rate")
+        print("     - Accepts cross-region assignments")
+        print("     - Aims for 100% allocation if possible\n")
+
+        while True:
+            choice = input("Enter your choice (1 or 2, press Enter for default): ").strip()
+
+            if choice == "" or choice == "1":
+                selected_prompt = "conservative"
+                break
+            elif choice == "2":
+                selected_prompt = "aggressive"
+                break
+            else:
+                print("❌ Invalid choice. Please enter 1 or 2 (or press Enter for default).\n")
+
+        os.environ["PROMPT_STRATEGY"] = selected_prompt
+        print(f"\n✓ Selected: {selected_prompt.upper()} strategy\n")
+    else:
+        # Override PROMPT_STRATEGY if provided via command line
+        os.environ["PROMPT_STRATEGY"] = args.prompt
+        print(f"\n✓ Using {args.prompt.upper()} strategy (from --prompt argument)\n")
+
+    # Convert to Path objects
+    orders_file = Path(args.orders)
+    drivers_file = Path(args.drivers)
+
+    # Validate files exist
+    if not orders_file.exists():
+        print(f"❌ Error: Orders file not found: {orders_file}")
+        sys.exit(1)
+    if not drivers_file.exists():
+        print(f"❌ Error: Drivers file not found: {drivers_file}")
+        sys.exit(1)
+
     print("\n🚀 SMART DELIVERY ALLOCATOR - FULL RUN\n")
+    print(f"📄 Orders file: {orders_file}")
+    print(f"📄 Drivers file: {drivers_file}\n")
 
     # Create timestamped output directory
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -280,10 +353,10 @@ def main():
 
     try:
         # Step 1: Data Analysis
-        run_data_analysis(output_dir)
+        run_data_analysis(output_dir, orders_file, drivers_file)
 
         # Step 2: Allocation
-        results = run_allocation(output_dir)
+        results = run_allocation(output_dir, orders_file, drivers_file)
 
         # Step 3: Create Summary
         create_summary(output_dir, results)

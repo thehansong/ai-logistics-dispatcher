@@ -41,7 +41,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Alice Tan is preferred for central region and has the capability for wedding orders. The orders do not overlap in time.",
+      "reasoning": "Alice Tan is preferred for central region and has the capability for wedding orders. The time windows for TEST-001 and TEST-006 do not overlap.",
       "utilization": 33.33333333333333
     },
     {
@@ -85,7 +85,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Emily Koh is preferred for south region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Emily Koh is preferred for south region and has the capability for wedding orders. TEST-002 fits within her schedule.",
       "utilization": 33.33333333333333
     },
     {
@@ -129,7 +129,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Grace Lee is preferred for east region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Grace Lee is preferred for east region and has the capability for wedding orders. TEST-003 fits within her schedule.",
       "utilization": 33.33333333333333
     },
     {
@@ -173,7 +173,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Catherine Wong is preferred for north region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Catherine Wong is preferred for north region and has the capability for wedding orders. TEST-004 fits within her schedule.",
       "utilization": 33.33333333333333
     },
     {
@@ -217,7 +217,7 @@
           "tags": []
         }
       ],
-      "reasoning": "Iris Chua is preferred for west region and has the capability for wedding orders. The order fits within her capacity.",
+      "reasoning": "Iris Chua is preferred for west region and has the capability for wedding orders. TEST-005 fits within her schedule.",
       "utilization": 33.33333333333333
     },
     {
@@ -247,7 +247,7 @@
           ]
         }
       ],
-      "reasoning": "Mary Goh is available with no current orders and has wedding capability. The order is in her preferred region (south).",
+      "reasoning": "Driver Mary Goh is available with no current orders and has wedding capability. Assigned to south region order.",
       "utilization": 20.0
     },
     {
@@ -305,7 +305,7 @@
           ]
         }
       ],
-      "reasoning": "Chloe Lee is preferred for the east region and has the capability to handle corporate orders. The order is in the east region and fits within her schedule.",
+      "reasoning": "Chloe Lee is preferred for the east region and has the capability to handle corporate orders. The order is in the east region and fits within her capacity.",
       "utilization": 20.0
     },
     {
@@ -334,7 +334,7 @@
           ]
         }
       ],
-      "reasoning": "Amanda Koh is preferred for the north region and has the capability to handle corporate orders. The order is in the north region and fits within her schedule.",
+      "reasoning": "Amanda Koh is preferred for the north region and has the capability to handle corporate orders. The order is in the north region and fits within her capacity.",
       "utilization": 20.0
     },
     {
@@ -363,7 +363,7 @@
           ]
         }
       ],
-      "reasoning": "Benjamin Chen is preferred for the south region and has the capability to handle corporate orders. The order is in the south region and fits within his schedule.",
+      "reasoning": "Benjamin Chen is preferred for the south region and has the capability to handle corporate orders. The order is in the south region and fits within his capacity.",
       "utilization": 20.0
     },
     {
@@ -392,7 +392,7 @@
           ]
         }
       ],
-      "reasoning": "Zachary Ng is preferred for the central region and has the capability to handle corporate orders. The order is in the central region and fits within his schedule.",
+      "reasoning": "Zachary Ng is preferred for the central region and has the capability to handle corporate orders. The order is in the central region and fits within his capacity.",
       "utilization": 20.0
     },
     {
@@ -423,7 +423,7 @@
           ]
         }
       ],
-      "reasoning": "Bob Lim is available with no current orders and has wedding capability. The order is in his preferred region (central).",
+      "reasoning": "Driver Bob Lim is available with no current orders and has wedding capability. Assigned to central region order.",
       "utilization": 16.666666666666664
     },
     {
@@ -454,7 +454,7 @@
           ]
         }
       ],
-      "reasoning": "David Ng is available with no current orders and has wedding capability. The order is in his preferred region (north).",
+      "reasoning": "Driver David Ng is available with no current orders and has wedding capability. Assigned to north region order.",
       "utilization": 16.666666666666664
     },
     {
@@ -485,7 +485,7 @@
           ]
         }
       ],
-      "reasoning": "Frank Chen is available with no current orders and has wedding capability. The order is in his preferred region (south).",
+      "reasoning": "Driver Frank Chen is available with no current orders and has wedding capability. Assigned to south region order.",
       "utilization": 16.666666666666664
     },
     {
@@ -516,7 +516,7 @@
           ]
         }
       ],
-      "reasoning": "Henry Teo is available with no current orders and has wedding capability. The order is in his preferred region (east).",
+      "reasoning": "Driver Henry Teo is available with no current orders and has wedding capability. Assigned to east region order.",
       "utilization": 16.666666666666664
     },
     {
@@ -547,7 +547,7 @@
           ]
         }
       ],
-      "reasoning": "Jack Yeo is available with no current orders and has wedding capability. The order is in his preferred region (west).",
+      "reasoning": "Driver Jack Yeo is available with no current orders and has wedding capability. Assigned to west region order.",
       "utilization": 16.666666666666664
     }
   ],
@@ -698,7 +698,7 @@
   "metrics": {
     "total_orders": 30,
     "total_drivers": 50,
-    "wedding_orders": 12,
+    "wedding_orders": 18,
     "wedding_drivers": 25,
     "total_capacity": 250,
     "utilization_rate": 12.0,
@@ -723,7 +723,7 @@
     },
     "priority_distribution": {
       "vip_wedding": 6,
-      "vip": 0,
+      "vip": 6,
       "wedding": 6,
       "corporate": 6,
       "regular": 6
