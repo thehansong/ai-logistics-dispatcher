@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""
+Quick data analysis script to understand constraints
+"""
+
+import json
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+
+# Load data from data directory
+data_dir = Path(__file__).parent.parent / 'data'
+
+with open(data_dir / 'orders.json', 'r') as f:
+    orders = json.load(f)
+
+with open(data_dir / 'drivers.json', 'r') as f:
+    drivers = json.load(f)
+
+print("=" * 80)
+print("DATA ANALYSIS REPORT")
+print("=" * 80)
+
+# Orders analysis
+print("\n📦 ORDERS ANALYSIS")
+print(f"Total orders: {len(orders)}")
+
+# Count by tags
+tags_count = defaultdict(int)
+for order in orders:
+    for tag in order.get('tags', []):
+        tags_count[tag] += 1
+
+print("\nOrders by tag:")
+for tag, count in sorted(tags_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {tag}: {count}")
+
+# Count wedding orders (with or without VIP)
+wedding_orders = [o for o in orders if 'wedding' in o.get('tags', [])]
+vip_wedding_orders = [o for o in orders if 'wedding' in o.get('tags', []) and 'vip' in o.get('tags', [])]
+print(f"\nTotal wedding orders: {len(wedding_orders)}")
+print(f"VIP wedding orders: {len(vip_wedding_orders)}")
+
+# Count by region
+region_count = defaultdict(int)
+for order in orders:
+    region_count[order.get('region')] += 1
+
+print("\nOrders by region:")
+for region, count in sorted(region_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {region}: {count}")
+
+# Count by event type
+event_count = defaultdict(int)
+for order in orders:
+    event_type = order.get('event_type') or 'None'
+    event_count[event_type] += 1
+
+print("\nOrders by event type:")
+for event, count in sorted(event_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {event}: {count}")
+
+# Analyze time distribution
+print("\nTime distribution:")
+time_slots = defaultdict(int)
+for order in orders:
+    setup_time = datetime.fromisoformat(order['setup_time'])
+    hour = setup_time.hour
+    if hour < 12:
+        time_slots['morning (before 12pm)'] += 1
+    elif hour < 18:
+        time_slots['afternoon (12pm-6pm)'] += 1
+    else:
+        time_slots['evening (after 6pm)'] += 1
+
+for slot, count in time_slots.items():
+    print(f"  {slot}: {count}")
+
+# TBD addresses
+tbd_orders = [o for o in orders if o.get('postal_code') == '000000']
+print(f"\nOrders with TBD address: {len(tbd_orders)}")
+
+print("\n" + "-" * 80)
+print("\n🚚 DRIVERS ANALYSIS")
+print(f"Total drivers: {len(drivers)}")
+
+# Count by capabilities
+cap_count = defaultdict(int)
+for driver in drivers:
+    for cap in driver.get('capabilities', []):
+        cap_count[cap] += 1
+
+print("\nDrivers by capability:")
+for cap, count in sorted(cap_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {cap}: {count}")
+
+# Wedding-capable drivers
+wedding_drivers = [d for d in drivers if 'wedding' in d.get('capabilities', [])]
+print(f"\nWedding-capable drivers: {len(wedding_drivers)}")
+
+# Count by preferred region
+driver_region_count = defaultdict(int)
+for driver in drivers:
+    driver_region_count[driver.get('preferred_region')] += 1
+
+print("\nDrivers by preferred region:")
+for region, count in sorted(driver_region_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {region}: {count}")
+
+# Capacity analysis
+total_capacity = sum(d.get('max_orders_per_day', 0) for d in drivers)
+avg_capacity = total_capacity / len(drivers)
+print(f"\nTotal driver capacity: {total_capacity} orders/day")
+print(f"Average capacity per driver: {avg_capacity:.1f} orders/day")
+
+# Capacity distribution
+capacity_dist = defaultdict(int)
+for driver in drivers:
+    capacity = driver.get('max_orders_per_day', 0)
+    capacity_dist[capacity] += 1
+
+print("\nCapacity distribution:")
+for cap, count in sorted(capacity_dist.items()):
+    print(f"  {cap} orders/day: {count} drivers")
+
+print("\n" + "-" * 80)
+print("\n⚠️  KEY CONSTRAINTS")
+print(f"  • Wedding orders: {len(wedding_orders)}")
+print(f"  • Wedding-capable drivers: {len(wedding_drivers)}")
+print(f"  • Ratio: {len(wedding_orders)/len(wedding_drivers):.1f} orders per wedding driver")
+print(f"\n  • Total orders: {len(orders)}")
+print(f"  • Total capacity: {total_capacity}")
+print(f"  • Utilization needed: {len(orders)/total_capacity*100:.1f}%")
+
+# Regional balance
+print("\nRegional balance issues:")
+for region in set(region_count.keys()) | set(driver_region_count.keys()):
+    order_count = region_count.get(region, 0)
+    driver_count = driver_region_count.get(region, 0)
+    if driver_count > 0:
+        ratio = order_count / driver_count
+        status = "⚠️ IMBALANCED" if ratio > 6 or ratio < 2 else "✓ OK"
+        print(f"  {region}: {order_count} orders / {driver_count} drivers = {ratio:.1f} orders/driver {status}")
+    else:
+        print(f"  {region}: {order_count} orders / NO DRIVERS ⚠️ CRITICAL")
+
+print("\n" + "=" * 80)

@@ -39,14 +39,14 @@ Get an API key at: https://platform.openai.com/api-keys
 ### 3. Run the Allocator
 
 ```bash
-python allocator.py
+python main.py
 ```
 
 This will:
-- Load orders from `orders.json` and drivers from `drivers.json`
+- Load orders from `data/orders.json` and drivers from `data/drivers.json`
 - Run the AI allocation engine
 - Display results in the terminal
-- Save results to `allocation_output.json`
+- Save results to `output/allocation_output.json`
 
 ## What It Does
 
@@ -61,13 +61,25 @@ The system intelligently allocates 60 catering orders to 70 delivery specialists
 ## Project Structure
 
 ```
-├── allocator.py          # Main allocation engine
-├── config.py            # LLM settings and prompts
-├── utils.py             # Helper functions (distance calc, validation)
-├── output_formatter.py  # Output formatting and visualization
-├── orders.json          # 60 catering orders (provided)
-├── drivers.json         # 70 drivers (provided)
-└── requirements.txt     # Python dependencies
+ai-logistics-dispatcher/
+├── main.py                  # Main entry point
+├── src/                     # Source code
+│   ├── allocator.py         # Main allocation engine
+│   ├── config.py            # LLM settings and prompts
+│   ├── utils.py             # Helper functions
+│   ├── preprocessor.py      # Data preprocessing
+│   ├── validator.py         # Allocation validation
+│   └── output_formatter.py  # Output formatting
+├── data/                    # Data files
+│   ├── orders.json          # 60 catering orders
+│   └── drivers.json         # 70 drivers
+├── scripts/                 # Utility scripts
+│   └── analyze_data.py      # Data analysis tool
+├── output/                  # Generated outputs
+│   └── allocation_output.json
+├── .env                     # API keys (create from .env.example)
+├── .env.example             # API key template
+└── requirements.txt         # Python dependencies
 ```
 
 ## Key Design Decisions

@@ -1,0 +1,1172 @@
+{
+  "allocations": [],
+  "unallocated_orders": [
+    {
+      "order_id": "Q3370",
+      "pickup_time": "2024-11-03T02:00:00",
+      "setup_time": "2024-11-03T03:00:00",
+      "teardown_time": "2024-11-03T06:00:00",
+      "address": "506 Airport Road, Paya Lebar",
+      "location": {
+        "lat": 1.366116,
+        "lng": 103.846863
+      },
+      "postal_code": "534395",
+      "region": "north",
+      "pax_count": 10,
+      "meal_type": "MiniBuffet",
+      "event_type": null,
+      "tags": []
+    },
+    {
+      "order_id": "Q3371",
+      "pickup_time": "2024-11-02T19:30:00",
+      "setup_time": "2024-11-02T20:30:00",
+      "teardown_time": "2024-11-02T23:30:00",
+      "address": "301 Sembawang Rd",
+      "location": {
+        "lat": 1.432833,
+        "lng": 103.784088
+      },
+      "postal_code": "758533",
+      "region": "north",
+      "pax_count": 20,
+      "meal_type": "MiniBuffet",
+      "event_type": null,
+      "tags": []
+    },
+    {
+      "order_id": "Q3372",
+      "pickup_time": "2024-11-02T19:00:00",
+      "setup_time": "2024-11-02T20:00:00",
+      "teardown_time": "2024-11-02T23:00:00",
+      "address": "60 Seletar Aerospace View, Seletar,",
+      "location": {
+        "lat": 1.352875,
+        "lng": 103.822659
+      },
+      "postal_code": "797505",
+      "region": "north",
+      "pax_count": 25,
+      "meal_type": "MiniBuffet",
+      "event_type": null,
+      "tags": []
+    },
+    {
+      "order_id": "Q3373",
+      "pickup_time": "2024-11-02T19:15:00",
+      "setup_time": "2024-11-02T20:15:00",
+      "teardown_time": "2024-11-02T23:15:00",
+      "address": "760 Old Choa Chu Kang Rd",
+      "location": {
+        "lat": 1.381094,
+        "lng": 103.742531
+      },
+      "postal_code": "699806",
+      "region": "west",
+      "pax_count": 15,
+      "meal_type": "MiniBuffet",
+      "event_type": null,
+      "tags": []
+    },
+    {
+      "order_id": "Q3374",
+      "pickup_time": "2024-11-03T02:15:00",
+      "setup_time": "2024-11-03T03:15:00",
+      "teardown_time": "2024-11-03T06:15:00",
+      "address": "317 Tanah Merah Coast Road",
+      "location": {
+        "lat": 1.349191,
+        "lng": 103.991994
+      },
+      "postal_code": "498820",
+      "region": "east",
+      "pax_count": 30,
+      "meal_type": "MiniBuffet",
+      "event_type": null,
+      "tags": []
+    },
+    {
+      "order_id": "P9764",
+      "pickup_time": "2024-11-03T00:15:00",
+      "setup_time": "2024-11-03T01:15:00",
+      "teardown_time": "2024-11-03T04:15:00",
+      "address": "SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6",
+      "location": {
+        "lat": 1.35407,
+        "lng": 103.81858
+      },
+      "postal_code": "178902",
+      "region": "east",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "P9765",
+      "pickup_time": "2024-11-03T00:00:00",
+      "setup_time": "2024-11-03T01:00:00",
+      "teardown_time": "2024-11-03T04:00:00",
+      "address": "SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6",
+      "location": {
+        "lat": 1.349681,
+        "lng": 103.820109
+      },
+      "postal_code": "178902",
+      "region": "east",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "P9766",
+      "pickup_time": "2024-11-03T01:45:00",
+      "setup_time": "2024-11-03T02:45:00",
+      "teardown_time": "2024-11-03T05:45:00",
+      "address": "SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6",
+      "location": {
+        "lat": 1.351975,
+        "lng": 103.822695
+      },
+      "postal_code": "178902",
+      "region": "east",
+      "pax_count": 40,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "P9767",
+      "pickup_time": "2024-11-03T02:45:00",
+      "setup_time": "2024-11-03T03:45:00",
+      "teardown_time": "2024-11-03T06:45:00",
+      "address": "SMU Alcove, Singapore Management University, 80 Stamford Rd, #B1-6",
+      "location": {
+        "lat": 1.353038,
+        "lng": 103.819604
+      },
+      "postal_code": "178902",
+      "region": "east",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "Q3958",
+      "pickup_time": "2024-11-02T18:45:00",
+      "setup_time": "2024-11-02T19:45:00",
+      "teardown_time": "2024-11-02T22:45:00",
+      "address": "Sacred Heart Hall, Church of Saint Ignatius, 8 Victoria Park Rd",
+      "location": {
+        "lat": 1.393964,
+        "lng": 103.841635
+      },
+      "postal_code": "266492",
+      "region": "north",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "N8347",
+      "pickup_time": "2024-11-02T19:00:00",
+      "setup_time": "2024-11-02T20:00:00",
+      "teardown_time": "2024-11-02T23:00:00",
+      "address": "9 Wallich St, Sofitel Singapore City Centre",
+      "location": {
+        "lat": 1.29478,
+        "lng": 103.85345
+      },
+      "postal_code": "078885",
+      "region": "central",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "Q1619",
+      "pickup_time": "2024-11-02T19:45:00",
+      "setup_time": "2024-11-02T20:45:00",
+      "teardown_time": "2024-11-02T23:45:00",
+      "address": "Church of The Immaculate Heart of Mary, 24 Highland Rd",
+      "location": {
+        "lat": 1.380691,
+        "lng": 103.837575
+      },
+      "postal_code": "549115",
+      "region": "north",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "Q3548",
+      "pickup_time": "2024-11-02T18:45:00",
+      "setup_time": "2024-11-02T19:45:00",
+      "teardown_time": "2024-11-02T22:45:00",
+      "address": "St Andrews Cathedral, 11 St Andrew's Rd",
+      "location": {
+        "lat": 1.349715,
+        "lng": 103.821796
+      },
+      "postal_code": "178959",
+      "region": "east",
+      "pax_count": 120,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q0753",
+      "pickup_time": "2024-11-02T19:45:00",
+      "setup_time": "2024-11-02T20:45:00",
+      "teardown_time": "2024-11-02T23:45:00",
+      "address": "549 Bedok North Ave 1 #11-452",
+      "location": {
+        "lat": 1.342056,
+        "lng": 103.943521
+      },
+      "postal_code": "460549",
+      "region": "east",
+      "pax_count": 120,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q3247",
+      "pickup_time": "2024-11-02T20:30:00",
+      "setup_time": "2024-11-02T21:30:00",
+      "teardown_time": "2024-11-03T00:30:00",
+      "address": "Church of Our Redeemer, 30 Duke's Rd",
+      "location": {
+        "lat": 1.390999,
+        "lng": 103.836451
+      },
+      "postal_code": "268912",
+      "region": "north",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P4047",
+      "pickup_time": "2024-11-03T01:30:00",
+      "setup_time": "2024-11-03T02:30:00",
+      "teardown_time": "2024-11-03T05:30:00",
+      "address": "655 Senja Road, #11-272",
+      "location": {
+        "lat": 1.340875,
+        "lng": 103.767876
+      },
+      "postal_code": "670655",
+      "region": "west",
+      "pax_count": 10,
+      "meal_type": "MiniBuffet",
+      "event_type": null,
+      "tags": []
+    },
+    {
+      "order_id": "N5760",
+      "pickup_time": "2024-11-03T00:30:00",
+      "setup_time": "2024-11-03T01:30:00",
+      "teardown_time": "2024-11-03T04:30:00",
+      "address": "59 Mohamed Sultan Road, #02-08/09, Sultan Link",
+      "location": {
+        "lat": 1.337105,
+        "lng": 103.699836
+      },
+      "postal_code": "238999",
+      "region": "west",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "Q4974",
+      "pickup_time": "2024-11-02T18:15:00",
+      "setup_time": "2024-11-02T19:15:00",
+      "teardown_time": "2024-11-02T22:15:00",
+      "address": "300 Bedok North Ave 3, Bethesda (Bedok-Tampines) Church",
+      "location": {
+        "lat": 1.342616,
+        "lng": 103.941824
+      },
+      "postal_code": "469717",
+      "region": "east",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "P4436",
+      "pickup_time": "2024-11-02T19:15:00",
+      "setup_time": "2024-11-02T20:15:00",
+      "teardown_time": "2024-11-02T23:15:00",
+      "address": "17 Mattar Rd, Grace Baptist Church",
+      "location": {
+        "lat": 1.323373,
+        "lng": 103.895718
+      },
+      "postal_code": "387722",
+      "region": "east",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "O1841",
+      "pickup_time": "2024-11-02T19:15:00",
+      "setup_time": "2024-11-02T20:15:00",
+      "teardown_time": "2024-11-02T23:15:00",
+      "address": "Lutheran Church Of Our Redeemer, 30 Duke's Rd",
+      "location": {
+        "lat": 1.390311,
+        "lng": 103.836225
+      },
+      "postal_code": "268912",
+      "region": "north",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q1662",
+      "pickup_time": "2024-11-02T20:15:00",
+      "setup_time": "2024-11-02T21:15:00",
+      "teardown_time": "2024-11-03T00:15:00",
+      "address": "51 Cuppage Rd, #10-12",
+      "location": {
+        "lat": 1.340125,
+        "lng": 103.744654
+      },
+      "postal_code": "229469",
+      "region": "west",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "P5729",
+      "pickup_time": "2024-11-03T02:45:00",
+      "setup_time": "2024-11-03T03:45:00",
+      "teardown_time": "2024-11-03T06:45:00",
+      "address": "33 Hyderabad Rd, Hortpark - MPH",
+      "location": {
+        "lat": 1.317289,
+        "lng": 103.876982
+      },
+      "postal_code": "119578",
+      "region": "central",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": []
+    },
+    {
+      "order_id": "Q1194",
+      "pickup_time": "2024-11-02T19:30:00",
+      "setup_time": "2024-11-02T20:30:00",
+      "teardown_time": "2024-11-02T23:30:00",
+      "address": "The Singapore Thomson Road Baptist Church, 45 Thomson Rd",
+      "location": {
+        "lat": 1.349667,
+        "lng": 103.822358
+      },
+      "postal_code": "307584",
+      "region": "central",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "P5232",
+      "pickup_time": "2024-11-02T19:15:00",
+      "setup_time": "2024-11-02T20:15:00",
+      "teardown_time": "2024-11-02T23:15:00",
+      "address": "4 How Sun Dr, Bartley Christian Church",
+      "location": {
+        "lat": 1.367187,
+        "lng": 103.845212
+      },
+      "postal_code": "538526",
+      "region": "north",
+      "pax_count": 120,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "O9177",
+      "pickup_time": "2024-11-02T15:45:00",
+      "setup_time": "2024-11-02T16:45:00",
+      "teardown_time": "2024-11-02T21:45:00",
+      "address": "149 Sims Dr",
+      "location": {
+        "lat": 1.32297,
+        "lng": 103.89375
+      },
+      "postal_code": "387380",
+      "region": "east",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Half-day Seminar",
+      "tags": [
+        "corporate",
+        "early_setup"
+      ]
+    },
+    {
+      "order_id": "O9178",
+      "pickup_time": "2024-11-02T16:00:00",
+      "setup_time": "2024-11-02T17:00:00",
+      "teardown_time": "2024-11-02T22:00:00",
+      "address": "149 Sims Dr",
+      "location": {
+        "lat": 1.319553,
+        "lng": 103.894827
+      },
+      "postal_code": "387380",
+      "region": "east",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Half-day Seminar",
+      "tags": [
+        "corporate",
+        "early_setup"
+      ]
+    },
+    {
+      "order_id": "P7916",
+      "pickup_time": "2024-11-02T20:15:00",
+      "setup_time": "2024-11-02T21:15:00",
+      "teardown_time": "2024-11-03T00:15:00",
+      "address": "156B Stirling Rd, True Way Presbyterian Church",
+      "location": {
+        "lat": 1.311846,
+        "lng": 103.902246
+      },
+      "postal_code": "148947",
+      "region": "east",
+      "pax_count": 180,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P8848",
+      "pickup_time": "2024-11-02T19:45:00",
+      "setup_time": "2024-11-02T20:45:00",
+      "teardown_time": "2024-11-02T23:45:00",
+      "address": "ARPC @ Tengah, 200 Bukit Batok West Ave. 5",
+      "location": {
+        "lat": 1.339633,
+        "lng": 103.699072
+      },
+      "postal_code": "659871",
+      "region": "west",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q5402",
+      "pickup_time": "2024-11-02T22:00:00",
+      "setup_time": "2024-11-02T23:00:00",
+      "teardown_time": "2024-11-03T02:00:00",
+      "address": "32 Maxwell Road, #03-01, Singapore",
+      "location": {
+        "lat": 1.305716,
+        "lng": 103.832898
+      },
+      "postal_code": "069115",
+      "region": "central",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "High Tea",
+      "tags": []
+    },
+    {
+      "order_id": "N8029",
+      "pickup_time": "2024-11-02T18:30:00",
+      "setup_time": "2024-11-02T19:30:00",
+      "teardown_time": "2024-11-02T22:30:00",
+      "address": "Christ Methodist Church, 597 East Coast Road, Singapore",
+      "location": {
+        "lat": 1.328371,
+        "lng": 103.921859
+      },
+      "postal_code": "429082",
+      "region": "east",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P4347",
+      "pickup_time": "2024-11-02T19:30:00",
+      "setup_time": "2024-11-02T20:30:00",
+      "teardown_time": "2024-11-02T23:30:00",
+      "address": "Living Sanctuary Brethren Church, 2 Hougang St 22",
+      "location": {
+        "lat": 1.370559,
+        "lng": 103.8459
+      },
+      "postal_code": "538728",
+      "region": "north",
+      "pax_count": 180,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "O9950",
+      "pickup_time": "2024-11-02T18:30:00",
+      "setup_time": "2024-11-02T19:30:00",
+      "teardown_time": "2024-11-02T22:30:00",
+      "address": "The Legacy at One North, 11 Slim Barracks Rise, #03-01",
+      "location": {
+        "lat": 1.350998,
+        "lng": 103.818613
+      },
+      "postal_code": "138664",
+      "region": "central",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P6567",
+      "pickup_time": "2024-11-02T21:30:00",
+      "setup_time": "2024-11-02T22:30:00",
+      "teardown_time": "2024-11-03T03:30:00",
+      "address": "TBC",
+      "location": {
+        "lat": 1.3521,
+        "lng": 103.8198
+      },
+      "postal_code": "000000",
+      "region": "central",
+      "pax_count": 30,
+      "meal_type": "Buffet",
+      "event_type": "Half-day Seminar",
+      "tags": [
+        "corporate"
+      ]
+    },
+    {
+      "order_id": "P6569",
+      "pickup_time": "2024-11-02T15:45:00",
+      "setup_time": "2024-11-02T16:45:00",
+      "teardown_time": "2024-11-02T21:45:00",
+      "address": "TBC",
+      "location": {
+        "lat": 1.3521,
+        "lng": 103.8198
+      },
+      "postal_code": "000000",
+      "region": "central",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Half-day Seminar",
+      "tags": [
+        "corporate",
+        "early_setup"
+      ]
+    },
+    {
+      "order_id": "P9688",
+      "pickup_time": "2024-11-02T19:00:00",
+      "setup_time": "2024-11-02T20:00:00",
+      "teardown_time": "2024-11-02T23:00:00",
+      "address": "ARPC Tengah, 200 Bukit Batok West Ave. 5",
+      "location": {
+        "lat": 1.339168,
+        "lng": 103.696181
+      },
+      "postal_code": "659871",
+      "region": "west",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q3490",
+      "pickup_time": "2024-11-02T18:45:00",
+      "setup_time": "2024-11-02T19:45:00",
+      "teardown_time": "2024-11-02T22:45:00",
+      "address": "International Baptist Church (IBC Singapore), 81 King's Rd",
+      "location": {
+        "lat": 1.391777,
+        "lng": 103.841615
+      },
+      "postal_code": "266358",
+      "region": "north",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "P2927",
+      "pickup_time": "2024-11-03T01:15:00",
+      "setup_time": "2024-11-03T02:15:00",
+      "teardown_time": "2024-11-03T05:15:00",
+      "address": "Tanglin Gin Jungle, Dempsey Rd, 26B",
+      "location": {
+        "lat": 1.34637,
+        "lng": 103.698912
+      },
+      "postal_code": "247693",
+      "region": "west",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "Q4280",
+      "pickup_time": "2024-11-03T02:45:00",
+      "setup_time": "2024-11-03T03:45:00",
+      "teardown_time": "2024-11-03T06:45:00",
+      "address": "WH Boardroom, Level 7, WH Medical Centre 17 Woodlands Drive 17",
+      "location": {
+        "lat": 1.384978,
+        "lng": 103.743029
+      },
+      "postal_code": "737628",
+      "region": "north",
+      "pax_count": 15,
+      "meal_type": "MiniBuffet",
+      "event_type": "Mini Buffet (Meal Box)",
+      "tags": []
+    },
+    {
+      "order_id": "K9492",
+      "pickup_time": "2024-11-02T18:00:00",
+      "setup_time": "2024-11-02T19:00:00",
+      "teardown_time": "2024-11-02T22:00:00",
+      "address": "7 Andover Road, CSC @ Changi Fairy Point 7",
+      "location": {
+        "lat": 1.3521,
+        "lng": 103.8198
+      },
+      "postal_code": "000000",
+      "region": "central",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "O9254",
+      "pickup_time": "2024-11-02T20:00:00",
+      "setup_time": "2024-11-02T21:00:00",
+      "teardown_time": "2024-11-03T00:00:00",
+      "address": "Calvary Pandan Bible Presbyterian Church, 201 Pandan Gardens",
+      "location": {
+        "lat": 1.330741,
+        "lng": 103.743069
+      },
+      "postal_code": "609337",
+      "region": "west",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P2994",
+      "pickup_time": "2024-11-03T02:00:00",
+      "setup_time": "2024-11-03T03:00:00",
+      "teardown_time": "2024-11-03T06:00:00",
+      "address": "5 Jiak Kim Street, Warehouse @ River Promenade",
+      "location": {
+        "lat": 1.339917,
+        "lng": 103.93176
+      },
+      "postal_code": "169425",
+      "region": "east",
+      "pax_count": 120,
+      "meal_type": "Buffet",
+      "event_type": "Dinner Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q4282",
+      "pickup_time": "2024-11-02T19:45:00",
+      "setup_time": "2024-11-02T20:45:00",
+      "teardown_time": "2024-11-02T23:45:00",
+      "address": "IMH Boardroom, Level 2, Annex Block 10 Buangkok View, Buangkok Green Medical Park",
+      "location": {
+        "lat": 1.368984,
+        "lng": 103.850357
+      },
+      "postal_code": "539747",
+      "region": "north",
+      "pax_count": 15,
+      "meal_type": "MiniBuffet",
+      "event_type": "Mini Buffet (Meal Box)",
+      "tags": []
+    },
+    {
+      "order_id": "O4346",
+      "pickup_time": "2024-11-02T15:30:00",
+      "setup_time": "2024-11-02T16:30:00",
+      "teardown_time": "2024-11-03T01:30:00",
+      "address": "20 Biopolis Way #08-01 Centros Building",
+      "location": {
+        "lat": 1.3515,
+        "lng": 103.819482
+      },
+      "postal_code": "138668",
+      "region": "central",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Full-day Seminar",
+      "tags": [
+        "corporate",
+        "early_setup"
+      ]
+    },
+    {
+      "order_id": "O4398",
+      "pickup_time": "2024-11-02T14:45:00",
+      "setup_time": "2024-11-02T15:45:00",
+      "teardown_time": "2024-11-03T00:45:00",
+      "address": "20 Biopolis Way #08-01 Centros Building",
+      "location": {
+        "lat": 1.35245,
+        "lng": 103.822681
+      },
+      "postal_code": "138668",
+      "region": "central",
+      "pax_count": 30,
+      "meal_type": "Buffet",
+      "event_type": "Full-day Seminar",
+      "tags": [
+        "corporate",
+        "early_setup"
+      ]
+    },
+    {
+      "order_id": "O4397",
+      "pickup_time": "2024-11-02T14:30:00",
+      "setup_time": "2024-11-02T15:30:00",
+      "teardown_time": "2024-11-03T00:30:00",
+      "address": "20 Biopolis Way #08-01 Centros Building",
+      "location": {
+        "lat": 1.350828,
+        "lng": 103.81735
+      },
+      "postal_code": "138668",
+      "region": "central",
+      "pax_count": 60,
+      "meal_type": "Buffet",
+      "event_type": "Full-day Seminar",
+      "tags": [
+        "corporate",
+        "early_setup"
+      ]
+    },
+    {
+      "order_id": "Q2717",
+      "pickup_time": "2024-11-02T19:45:00",
+      "setup_time": "2024-11-02T20:45:00",
+      "teardown_time": "2024-11-02T23:45:00",
+      "address": "Bethesda Bedok-Tampines Church, 300 Bedok North Ave 3",
+      "location": {
+        "lat": 1.345937,
+        "lng": 103.944735
+      },
+      "postal_code": "469717",
+      "region": "east",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P6984",
+      "pickup_time": "2024-11-02T18:45:00",
+      "setup_time": "2024-11-02T19:45:00",
+      "teardown_time": "2024-11-02T22:45:00",
+      "address": "Holy Trinity church, 1 Hamilton Rd",
+      "location": {
+        "lat": 1.352365,
+        "lng": 103.819967
+      },
+      "postal_code": "209175",
+      "region": "east",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P6985",
+      "pickup_time": "2024-11-02T20:45:00",
+      "setup_time": "2024-11-02T21:45:00",
+      "teardown_time": "2024-11-03T00:45:00",
+      "address": "Holy Trinity church, 1 Hamilton Rd",
+      "location": {
+        "lat": 1.352382,
+        "lng": 103.81813
+      },
+      "postal_code": "209175",
+      "region": "east",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "N4492",
+      "pickup_time": "2024-11-02T20:30:00",
+      "setup_time": "2024-11-02T21:30:00",
+      "teardown_time": "2024-11-03T00:30:00",
+      "address": "Yishun Christian Church, 10 Yishun Ave 5",
+      "location": {
+        "lat": 1.43843,
+        "lng": 103.786995
+      },
+      "postal_code": "768991",
+      "region": "north",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q1717",
+      "pickup_time": "2024-11-02T19:00:00",
+      "setup_time": "2024-11-02T20:00:00",
+      "teardown_time": "2024-11-02T23:00:00",
+      "address": "301 Yio Chu Kang Rd, Church of St Vincent De Paul",
+      "location": {
+        "lat": 1.447882,
+        "lng": 103.822758
+      },
+      "postal_code": "805910",
+      "region": "north",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "Q5082",
+      "pickup_time": "2024-11-02T19:00:00",
+      "setup_time": "2024-11-02T20:00:00",
+      "teardown_time": "2024-11-02T23:00:00",
+      "address": "Lutheran Church of Our Redeemer, 30 Duke's Rd",
+      "location": {
+        "lat": 1.391368,
+        "lng": 103.837818
+      },
+      "postal_code": "268912",
+      "region": "north",
+      "pax_count": 150,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "Q4627",
+      "pickup_time": "2024-11-02T19:00:00",
+      "setup_time": "2024-11-02T20:00:00",
+      "teardown_time": "2024-11-02T23:00:00",
+      "address": "Church of St Teresa Singapore, 510 Kampong Bahru Rd",
+      "location": {
+        "lat": 1.305601,
+        "lng": 103.84904
+      },
+      "postal_code": "099446",
+      "region": "central",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P7015",
+      "pickup_time": "2024-11-02T20:45:00",
+      "setup_time": "2024-11-02T21:45:00",
+      "teardown_time": "2024-11-03T00:45:00",
+      "address": "Jurong Christian Church, 2 Tah Ching Road",
+      "location": {
+        "lat": 1.33688,
+        "lng": 103.766541
+      },
+      "postal_code": "618744",
+      "region": "west",
+      "pax_count": 180,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "P8887",
+      "pickup_time": "2024-11-02T20:15:00",
+      "setup_time": "2024-11-02T21:15:00",
+      "teardown_time": "2024-11-03T00:15:00",
+      "address": "Bukit Arang Church, 114 Serangoon Ave 3",
+      "location": {
+        "lat": 1.372587,
+        "lng": 103.853624
+      },
+      "postal_code": "556110",
+      "region": "north",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "Q4284",
+      "pickup_time": "2024-11-02T19:45:00",
+      "setup_time": "2024-11-02T20:45:00",
+      "teardown_time": "2024-11-02T23:45:00",
+      "address": "YCH Boardroom, Level 8, Tower E Yishun Community Hospital 2 Yishun Central 2",
+      "location": {
+        "lat": 1.439722,
+        "lng": 103.78444
+      },
+      "postal_code": "768024",
+      "region": "north",
+      "pax_count": 10,
+      "meal_type": "MiniBuffet",
+      "event_type": "Mini Buffet (Meal Box)",
+      "tags": []
+    },
+    {
+      "order_id": "Q3819",
+      "pickup_time": "2024-11-02T20:45:00",
+      "setup_time": "2024-11-02T21:45:00",
+      "teardown_time": "2024-11-03T00:45:00",
+      "address": "2 Dundee Rd, Church of the Good Shepherd",
+      "location": {
+        "lat": 1.313219,
+        "lng": 103.907839
+      },
+      "postal_code": "149454",
+      "region": "east",
+      "pax_count": 200,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding",
+        "vip"
+      ]
+    },
+    {
+      "order_id": "N8980",
+      "pickup_time": "2024-11-02T18:00:00",
+      "setup_time": "2024-11-02T19:00:00",
+      "teardown_time": "2024-11-02T22:00:00",
+      "address": "28 Choa Chu Kang Dr, Safra Choa Chu Kang",
+      "location": {
+        "lat": 1.357511,
+        "lng": 103.762041
+      },
+      "postal_code": "689964",
+      "region": "west",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "O3425",
+      "pickup_time": "2024-11-02T19:15:00",
+      "setup_time": "2024-11-02T20:15:00",
+      "teardown_time": "2024-11-02T23:15:00",
+      "address": "301 Yio Chu Kang Rd, Church of St. Vincent de Paul",
+      "location": {
+        "lat": 1.44596,
+        "lng": 103.819692
+      },
+      "postal_code": "805910",
+      "region": "north",
+      "pax_count": 120,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "P4506",
+      "pickup_time": "2024-11-02T20:45:00",
+      "setup_time": "2024-11-02T21:45:00",
+      "teardown_time": "2024-11-03T00:45:00",
+      "address": "11 St Andrew's Rd, St Andrew Cathedral",
+      "location": {
+        "lat": 1.354315,
+        "lng": 103.816983
+      },
+      "postal_code": "178959",
+      "region": "east",
+      "pax_count": 80,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    },
+    {
+      "order_id": "P9890",
+      "pickup_time": "2024-11-02T19:15:00",
+      "setup_time": "2024-11-02T20:15:00",
+      "teardown_time": "2024-11-02T23:15:00",
+      "address": "24 Highland Rd, Immaculate Heart of Mary Catholic Church (Highland Road)",
+      "location": {
+        "lat": 1.383624,
+        "lng": 103.838619
+      },
+      "postal_code": "549115",
+      "region": "north",
+      "pax_count": 100,
+      "meal_type": "Buffet",
+      "event_type": "Lunch Buffet",
+      "tags": [
+        "wedding"
+      ]
+    }
+  ],
+  "metrics": {
+    "total_orders": 60,
+    "total_drivers": 70,
+    "wedding_orders": 36,
+    "wedding_drivers": 14,
+    "total_capacity": 414,
+    "utilization_rate": 14.492753623188406,
+    "orders_by_region": {
+      "north": 19,
+      "west": 10,
+      "east": 19,
+      "central": 12
+    },
+    "drivers_by_region": {
+      "north": 16,
+      "west": 17,
+      "south": 14,
+      "east": 16,
+      "central": 7
+    },
+    "time_distribution": {
+      "morning": 12,
+      "evening": 42,
+      "afternoon": 6
+    },
+    "priority_distribution": {
+      "vip_wedding": 19,
+      "vip": 0,
+      "wedding": 17,
+      "corporate": 7,
+      "regular": 17
+    }
+  },
+  "warnings": [
+    "High wedding order load: 36 orders for 14 drivers"
+  ]
+}

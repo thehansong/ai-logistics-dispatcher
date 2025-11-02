@@ -11,6 +11,7 @@ from typing import List, Dict, Any
 from config import Config
 from utils import load_json_file, validate_data
 from output_formatter import format_allocation_output
+from preprocessor import DataPreprocessor
 
 
 class DeliveryAllocator:
@@ -33,6 +34,10 @@ class DeliveryAllocator:
 
         print(f"Loaded {len(self.orders)} orders and {len(self.drivers)} drivers")
 
+        # Initialize preprocessor
+        self.preprocessor = DataPreprocessor(self.orders, self.drivers)
+        self.preprocessed_data = None
+
     def allocate(self) -> Dict[str, Any]:
         """
         Main allocation logic - orchestrates the multi-stage allocation process
@@ -42,13 +47,20 @@ class DeliveryAllocator:
         """
         print("\n=== Starting allocation process ===\n")
 
-        # Placeholder for now - will implement in Phase 3
+        # Step 1: Preprocess data
+        self.preprocessed_data = self.preprocessor.preprocess()
+
+        # Placeholder for Phase 3 - AI allocation will go here
         allocation_results = {
             "allocations": [],
-            "unallocated_orders": [],
-            "metrics": {},
+            "unallocated_orders": self.orders,  # For now, all orders unallocated
+            "metrics": self.preprocessed_data["stats"],
             "warnings": []
         }
+
+        # Add constraints as warnings
+        for warning in self.preprocessed_data["constraints"]["warnings"]:
+            allocation_results["warnings"].append(warning)
 
         return allocation_results
 
@@ -61,9 +73,9 @@ class DeliveryAllocator:
 
 def main():
     """Main entry point"""
-    # Default file paths
-    orders_file = "orders.json"
-    drivers_file = "drivers.json"
+    # Default file paths (relative to project root)
+    orders_file = "data/orders.json"
+    drivers_file = "data/drivers.json"
 
     # Allow command line overrides
     if len(sys.argv) > 2:
@@ -80,8 +92,8 @@ def main():
         # Format and display output
         format_allocation_output(results)
 
-        # Save to file
-        allocator.save_results(results)
+        # Save to file (in output directory)
+        allocator.save_results(results, "output/allocation_output.json")
 
     except Exception as e:
         print(f"Error: {e}")
