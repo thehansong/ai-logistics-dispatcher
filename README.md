@@ -64,12 +64,14 @@ python run_allocation.py
 This single command will:
 1. Run data analysis with statistics
 2. Execute AI allocation through 5 stages
-3. Generate comprehensive summary
-4. Save all outputs to timestamped folder: `output/run_YYYY-MM-DD_HH-MM-SS/`
+3. Generate interactive map visualization
+4. Create comprehensive summary
+5. Save all outputs to timestamped folder: `output/run_YYYY-MM-DD_HH-MM-SS/`
    - `00_SUMMARY.txt` - Quick overview with key metrics
    - `01_data_analysis.txt` - Data statistics and constraints
    - `02_allocation_results.json` - Complete allocation results
-5. Copy to `output/latest/` for easy access
+   - `03_allocation_map.html` - Interactive map visualization
+6. Copy to `output/latest/` for easy access
 
 **Alternative: Run Components Individually**
 
@@ -119,11 +121,13 @@ ai-logistics-dispatcher/
 │   ├── run_YYYY-MM-DD_HH-MM-SS/     # Timestamped run folders
 │   │   ├── 00_SUMMARY.txt           # Quick overview
 │   │   ├── 01_data_analysis.txt     # Data insights
-│   │   └── 02_allocation_results.json # Full results
+│   │   ├── 02_allocation_results.json # Full results
+│   │   └── 03_allocation_map.html   # Interactive map
 │   └── latest/                      # Latest run (always available)
 │       ├── 00_SUMMARY.txt
 │       ├── 01_data_analysis.txt
-│       └── 02_allocation_results.json
+│       ├── 02_allocation_results.json
+│       └── 03_allocation_map.html
 ├── venv/                            # Virtual environment
 ├── .env                             # API keys (create from .env.example)
 ├── .env.example                     # API key template
@@ -185,11 +189,11 @@ The system processes orders through 5 intelligent stages:
 
 ## Output Format
 
-The system generates:
-1. **Terminal output**: Human-readable allocation summary
-2. **JSON file**: Structured allocation data (`allocation_output.json`)
-3. **Text file**: Detailed report (`allocation_output.txt`)
-4. **Map visualization** (optional): HTML map showing allocations
+The system generates 4 files per run in a timestamped folder:
+1. **00_SUMMARY.txt**: Quick overview with key metrics and top drivers
+2. **01_data_analysis.txt**: Detailed data statistics and constraint analysis
+3. **02_allocation_results.json**: Complete allocation results with driver assignments and reasoning
+4. **03_allocation_map.html**: Interactive map visualization with color-coded markers
 
 ## Example Output
 
@@ -266,25 +270,25 @@ The system generates:
 - Metrics calculation (utilization, regional distribution)
 - Unallocated order reasoning
 
-### 🚧 Current Status
+**Phase 4: Visualization**
+- Interactive HTML map using Folium
+- Color-coded markers per driver (20 distinct colors)
+- VIP orders marked with star icons, regular with cutlery icons
+- Unallocated orders in red with warning icons
+- Interactive popups showing order and driver details
+- Layer control to toggle individual drivers
+- Legend and statistics overlay
+- Map output: `03_allocation_map.html`
+
+### ✅ Current Status
 
 **System is fully functional!** Just needs a valid API key to run.
 
-- All 3 phases complete
+- All 4 phases complete
 - End-to-end testing completed
 - Timestamped output files working
-- Data analysis script operational
-
-### ⏳ Next Phase (Optional Enhancement)
-
-**Phase 4: Visualization**
-- Interactive HTML map using Folium/Leaflet
-- Color-coded driver pins showing assigned orders
-- Regional boundary overlays
-- Order clustering visualization
-- Driver route visualization (without optimization)
-
-This phase is **optional** as the current text/JSON output already provides all necessary information for the ops team.
+- Data analysis, allocation, and visualization integrated
+- Single command execution via `run_allocation.py`
 
 ---
 
@@ -295,6 +299,7 @@ This phase is **optional** as the current text/JSON output already provides all 
 - Multi-provider LLM support (OpenAI/Anthropic/Azure)
 - Comprehensive validation with hard constraints
 - Timestamped output for history tracking
+- Interactive map visualization with Folium
 - Clear separation of AI reasoning vs deterministic logic
 
 📊 **Data Insights:**

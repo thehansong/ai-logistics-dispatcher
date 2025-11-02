@@ -18,6 +18,7 @@ from allocator import DeliveryAllocator
 from config import Config
 from utils import load_json_file
 from output_formatter import format_allocation_output
+from map_visualizer import generate_map_from_results
 import json
 from io import StringIO
 from collections import defaultdict
@@ -287,6 +288,17 @@ def main():
         # Step 3: Create Summary
         create_summary(output_dir, results)
 
+        # Step 4: Generate Map Visualization
+        print("\n" + "=" * 80)
+        print("STEP 3: MAP VISUALIZATION")
+        print("=" * 80 + "\n")
+
+        map_file = output_dir / "03_allocation_map.html"
+        try:
+            generate_map_from_results(results, str(map_file))
+        except Exception as e:
+            print(f"⚠️  Map generation skipped: {e}")
+
         # Also update "latest" symlink/copy
         latest_dir = Path("output") / "latest"
         if latest_dir.exists():
@@ -305,9 +317,10 @@ def main():
         print(f"\n📂 All outputs saved to: {output_dir}")
         print(f"📂 Latest run also available at: output/latest/")
         print("\nFiles generated:")
-        print("  - 00_SUMMARY.txt           (Quick overview)")
-        print("  - 01_data_analysis.txt     (Data insights)")
-        print("  - 02_allocation_results.json (Full results)")
+        print("  - 00_SUMMARY.txt               (Quick overview)")
+        print("  - 01_data_analysis.txt         (Data insights)")
+        print("  - 02_allocation_results.json   (Full results)")
+        print("  - 03_allocation_map.html       (Interactive map)")
         print()
 
     except Exception as e:
