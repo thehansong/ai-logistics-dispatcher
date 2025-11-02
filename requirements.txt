@@ -1,0 +1,14 @@
+# Core dependencies
+anthropic>=0.39.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# Optional: For map visualization
+folium>=0.14.0
+
+# Standard library (no install needed)
+# - json
+# - datetime
+# - math
+# - sys
+# - os
