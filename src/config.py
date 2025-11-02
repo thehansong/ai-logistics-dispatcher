@@ -13,12 +13,18 @@ class Config:
     """Configuration class for LLM and application settings"""
 
     def __init__(self):
-        # LLM Provider - can be "anthropic" or "openai"
+        # LLM Provider - can be "anthropic", "openai", or "azure_openai"
         self.llm_provider = os.getenv("LLM_PROVIDER", "anthropic")
 
         # API Keys (loaded from environment variables)
         self.anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
+
+        # Azure OpenAI settings
+        self.azure_openai_api_key = os.getenv("AZURE_OPENAI_API_KEY")
+        self.azure_openai_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+        self.azure_openai_deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
+        self.azure_openai_api_version = os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-15-preview")
 
         # Model selection
         self.anthropic_model = "claude-3-5-sonnet-20241022"
@@ -54,6 +60,13 @@ class Config:
                     "Get an API key at: https://platform.openai.com/api-keys"
                 )
             return self.openai_api_key
+        elif self.llm_provider == "azure_openai":
+            if not self.azure_openai_api_key:
+                raise ValueError(
+                    "AZURE_OPENAI_API_KEY not found in environment variables.\n"
+                    "Please set it in your .env file"
+                )
+            return self.azure_openai_api_key
         else:
             raise ValueError(f"Unknown LLM provider: {self.llm_provider}")
 
@@ -63,6 +76,8 @@ class Config:
             return self.anthropic_model
         elif self.llm_provider == "openai":
             return self.openai_model
+        elif self.llm_provider == "azure_openai":
+            return self.azure_openai_deployment
         else:
             raise ValueError(f"Unknown LLM provider: {self.llm_provider}")
 

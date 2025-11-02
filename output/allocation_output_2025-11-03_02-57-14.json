@@ -16,7 +16,8 @@
       "pax_count": 10,
       "meal_type": "MiniBuffet",
       "event_type": null,
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3371",
@@ -33,7 +34,8 @@
       "pax_count": 20,
       "meal_type": "MiniBuffet",
       "event_type": null,
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3372",
@@ -50,7 +52,8 @@
       "pax_count": 25,
       "meal_type": "MiniBuffet",
       "event_type": null,
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3373",
@@ -67,7 +70,8 @@
       "pax_count": 15,
       "meal_type": "MiniBuffet",
       "event_type": null,
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3374",
@@ -84,7 +88,8 @@
       "pax_count": 30,
       "meal_type": "MiniBuffet",
       "event_type": null,
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P9764",
@@ -101,7 +106,8 @@
       "pax_count": 60,
       "meal_type": "Buffet",
       "event_type": "Dinner Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P9765",
@@ -118,7 +124,8 @@
       "pax_count": 60,
       "meal_type": "Buffet",
       "event_type": "Dinner Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P9766",
@@ -135,7 +142,8 @@
       "pax_count": 40,
       "meal_type": "Buffet",
       "event_type": "Dinner Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P9767",
@@ -152,7 +160,8 @@
       "pax_count": 80,
       "meal_type": "Buffet",
       "event_type": "Dinner Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3958",
@@ -172,7 +181,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "N8347",
@@ -192,7 +202,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q1619",
@@ -212,7 +223,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3548",
@@ -231,7 +243,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q0753",
@@ -250,7 +263,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3247",
@@ -270,7 +284,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P4047",
@@ -287,7 +302,8 @@
       "pax_count": 10,
       "meal_type": "MiniBuffet",
       "event_type": null,
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "N5760",
@@ -304,7 +320,8 @@
       "pax_count": 80,
       "meal_type": "Buffet",
       "event_type": "Dinner Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q4974",
@@ -323,7 +340,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P4436",
@@ -343,7 +361,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O1841",
@@ -362,7 +381,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q1662",
@@ -379,7 +399,8 @@
       "pax_count": 60,
       "meal_type": "Buffet",
       "event_type": "Lunch Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P5729",
@@ -396,7 +417,8 @@
       "pax_count": 80,
       "meal_type": "Buffet",
       "event_type": "Dinner Buffet",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q1194",
@@ -415,7 +437,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P5232",
@@ -434,7 +457,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O9177",
@@ -454,7 +478,8 @@
       "tags": [
         "corporate",
         "early_setup"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O9178",
@@ -474,7 +499,8 @@
       "tags": [
         "corporate",
         "early_setup"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P7916",
@@ -494,7 +520,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P8848",
@@ -513,7 +540,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q5402",
@@ -530,7 +558,8 @@
       "pax_count": 100,
       "meal_type": "Buffet",
       "event_type": "High Tea",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "N8029",
@@ -550,7 +579,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P4347",
@@ -570,7 +600,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O9950",
@@ -590,7 +621,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P6567",
@@ -609,7 +641,8 @@
       "event_type": "Half-day Seminar",
       "tags": [
         "corporate"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P6569",
@@ -629,7 +662,8 @@
       "tags": [
         "corporate",
         "early_setup"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P9688",
@@ -648,7 +682,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3490",
@@ -667,7 +702,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P2927",
@@ -687,7 +723,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q4280",
@@ -704,7 +741,8 @@
       "pax_count": 15,
       "meal_type": "MiniBuffet",
       "event_type": "Mini Buffet (Meal Box)",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "K9492",
@@ -724,7 +762,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O9254",
@@ -744,7 +783,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P2994",
@@ -763,7 +803,8 @@
       "event_type": "Dinner Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q4282",
@@ -780,7 +821,8 @@
       "pax_count": 15,
       "meal_type": "MiniBuffet",
       "event_type": "Mini Buffet (Meal Box)",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O4346",
@@ -800,7 +842,8 @@
       "tags": [
         "corporate",
         "early_setup"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O4398",
@@ -820,7 +863,8 @@
       "tags": [
         "corporate",
         "early_setup"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O4397",
@@ -840,7 +884,8 @@
       "tags": [
         "corporate",
         "early_setup"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q2717",
@@ -860,7 +905,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P6984",
@@ -880,7 +926,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P6985",
@@ -899,7 +946,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "N4492",
@@ -918,7 +966,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q1717",
@@ -937,7 +986,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q5082",
@@ -957,7 +1007,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q4627",
@@ -977,7 +1028,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P7015",
@@ -997,7 +1049,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P8887",
@@ -1017,7 +1070,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q4284",
@@ -1034,7 +1088,8 @@
       "pax_count": 10,
       "meal_type": "MiniBuffet",
       "event_type": "Mini Buffet (Meal Box)",
-      "tags": []
+      "tags": [],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "Q3819",
@@ -1054,7 +1109,8 @@
       "tags": [
         "wedding",
         "vip"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "N8980",
@@ -1073,7 +1129,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "O3425",
@@ -1092,7 +1149,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P4506",
@@ -1111,7 +1169,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     },
     {
       "order_id": "P9890",
@@ -1130,7 +1189,8 @@
       "event_type": "Lunch Buffet",
       "tags": [
         "wedding"
-      ]
+      ],
+      "unallocation_reason": "Time conflicts or regional constraints prevented allocation"
     }
   ],
   "metrics": {
@@ -1164,7 +1224,12 @@
       "wedding": 17,
       "corporate": 7,
       "regular": 17
-    }
+    },
+    "total_allocated": 0,
+    "total_unallocated": 60,
+    "allocation_rate": 0.0,
+    "total_drivers_used": 0,
+    "regional_distribution": {}
   },
   "warnings": [
     "High wedding order load: 36 orders for 14 drivers"
