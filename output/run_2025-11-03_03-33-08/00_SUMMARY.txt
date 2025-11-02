@@ -1,0 +1,48 @@
+================================================================================
+ALLOCATION RUN SUMMARY
+================================================================================
+
+Run Date: 2025-11-03 03:33:54
+Output Directory: run_2025-11-03_03-33-08
+
+================================================================================
+KEY METRICS
+================================================================================
+
+📊 ALLOCATION SUCCESS
+  Total Orders: 60
+  Allocated: 25 (41.7%)
+  Unallocated: 35
+  Drivers Used: 19
+
+🚚 DRIVER UTILIZATION
+  Average: 24.0%
+  Top 5 Drivers:
+    1. Jun Iyer (DRV-026): 50% - 2 orders
+    2. Lakshmi Naidu (DRV-008): 40% - 2 orders
+    3. Karthik Koh (DRV-012): 40% - 2 orders
+    4. Hock Mahmud (DRV-001): 33% - 2 orders
+    5. Wei Teo (DRV-006): 33% - 2 orders
+
+🗺️  REGIONAL DISTRIBUTION
+  north: 8 orders
+  east: 7 orders
+  central: 5 orders
+  west: 5 orders
+
+⚠️  WARNINGS (5)
+  • Driver DRV-064 (prefers east) has 1/1 orders outside preferred region: ['Q1717']
+  • Driver DRV-038 (prefers west) has 1/1 orders outside preferred region: ['N4492']
+  • Driver DRV-007 (prefers north) has 1/1 orders outside preferred region: ['Q1662']
+  • Driver DRV-041 (prefers west) has 1/1 orders outside preferred region: ['P8887']
+  • High wedding order load: 36 orders for 14 drivers
+
+================================================================================
+FILES GENERATED
+================================================================================
+
+  00_SUMMARY.txt             - This summary file
+  01_data_analysis.txt       - Data statistics and constraints
+  02_allocation_results.json - Complete allocation results (JSON)
+
+================================================================================
