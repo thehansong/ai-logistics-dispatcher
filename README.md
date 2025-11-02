@@ -2,6 +2,8 @@
 
 AI-powered catering order allocation system that intelligently assigns delivery orders to drivers based on constraints, priorities, and logistics.
 
+# Youtube Video Link: TODO
+
 ## Quick Start
 
 ### 1. Set Up Virtual Environment
