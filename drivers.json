@@ -1,0 +1,552 @@
+[
+  {
+    "driver_id": "DRV-001",
+    "name": "Hock Mahmud",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-002",
+    "name": "Hakim Osman",
+    "preferred_region": "west",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-003",
+    "name": "Aisyah Chen",
+    "preferred_region": "west",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-004",
+    "name": "Vijay Singh",
+    "preferred_region": "south",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-005",
+    "name": "Marcus Pillai",
+    "preferred_region": "west",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-006",
+    "name": "Wei Teo",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-007",
+    "name": "Sarah Hassan",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-008",
+    "name": "Lakshmi Naidu",
+    "preferred_region": "east",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-009",
+    "name": "Rashid Ong",
+    "preferred_region": "south",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-010",
+    "name": "Hafiz Sharma",
+    "preferred_region": "east",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-011",
+    "name": "Kumar Koh",
+    "preferred_region": "east",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-012",
+    "name": "Karthik Koh",
+    "preferred_region": "central",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-013",
+    "name": "Farah Low",
+    "preferred_region": "west",
+    "max_orders_per_day": 8,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-014",
+    "name": "Lakshmi Tay",
+    "preferred_region": "east",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-015",
+    "name": "Benjamin Tan",
+    "preferred_region": "east",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-016",
+    "name": "Boon Koh",
+    "preferred_region": "south",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-017",
+    "name": "Kavita Rao",
+    "preferred_region": "west",
+    "max_orders_per_day": 4
+  },
+  {
+    "driver_id": "DRV-018",
+    "name": "Daniel Chong",
+    "preferred_region": "north",
+    "max_orders_per_day": 8,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-019",
+    "name": "Daniel Williams",
+    "preferred_region": "west",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-020",
+    "name": "Jie Chen",
+    "preferred_region": "central",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-021",
+    "name": "Aziz Williams",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-022",
+    "name": "Keng Low",
+    "preferred_region": "north",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-023",
+    "name": "Daniel Goh",
+    "preferred_region": "south",
+    "max_orders_per_day": 4,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-024",
+    "name": "Kumar Garcia",
+    "preferred_region": "north",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-025",
+    "name": "Muhammad Rodriguez",
+    "preferred_region": "central",
+    "max_orders_per_day": 7,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-026",
+    "name": "Jun Iyer",
+    "preferred_region": "east",
+    "max_orders_per_day": 4,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-027",
+    "name": "Hakim Sim",
+    "preferred_region": "north",
+    "max_orders_per_day": 8
+  },
+  {
+    "driver_id": "DRV-028",
+    "name": "Teck Iyer",
+    "preferred_region": "east",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-029",
+    "name": "Marcus Ahmad",
+    "preferred_region": "south",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-030",
+    "name": "Nadia Rao",
+    "preferred_region": "west",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-031",
+    "name": "Raj Johnson",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-032",
+    "name": "Pooja Garcia",
+    "preferred_region": "north",
+    "max_orders_per_day": 7
+  },
+  {
+    "driver_id": "DRV-033",
+    "name": "Kavita Yusof",
+    "preferred_region": "south",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-034",
+    "name": "Rashid Sharma",
+    "preferred_region": "east",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-035",
+    "name": "Divya Ibrahim",
+    "preferred_region": "south",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-036",
+    "name": "Xin Smith",
+    "preferred_region": "central",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-037",
+    "name": "Aziz Nair",
+    "preferred_region": "east",
+    "max_orders_per_day": 7
+  },
+  {
+    "driver_id": "DRV-038",
+    "name": "Ravi Yusof",
+    "preferred_region": "west",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-039",
+    "name": "Siew Hamid",
+    "preferred_region": "east",
+    "max_orders_per_day": 8
+  },
+  {
+    "driver_id": "DRV-040",
+    "name": "Suresh Sharma",
+    "preferred_region": "north",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-041",
+    "name": "Sanjay Menon",
+    "preferred_region": "west",
+    "max_orders_per_day": 7,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-042",
+    "name": "Keng Naidu",
+    "preferred_region": "central",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-043",
+    "name": "Yi Sharma",
+    "preferred_region": "central",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-044",
+    "name": "Kavita Rodriguez",
+    "preferred_region": "west",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-045",
+    "name": "Ling Ong",
+    "preferred_region": "south",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-046",
+    "name": "Rachel Rodriguez",
+    "preferred_region": "south",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-047",
+    "name": "Ling Singh",
+    "preferred_region": "east",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-048",
+    "name": "Ahmad Chen",
+    "preferred_region": "south",
+    "max_orders_per_day": 4
+  },
+  {
+    "driver_id": "DRV-049",
+    "name": "Mei Singh",
+    "preferred_region": "north",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-050",
+    "name": "Karthik Patel",
+    "preferred_region": "west",
+    "max_orders_per_day": 8
+  },
+  {
+    "driver_id": "DRV-051",
+    "name": "Sophie Low",
+    "preferred_region": "north",
+    "max_orders_per_day": 8
+  },
+  {
+    "driver_id": "DRV-052",
+    "name": "Aziz Low",
+    "preferred_region": "east",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-053",
+    "name": "Chen Iyer",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-054",
+    "name": "Arjun Smith",
+    "preferred_region": "west",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-055",
+    "name": "Vijay Naidu",
+    "preferred_region": "central",
+    "max_orders_per_day": 7,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-056",
+    "name": "Hakim Ismail",
+    "preferred_region": "south",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-057",
+    "name": "Keng Rodriguez",
+    "preferred_region": "west",
+    "max_orders_per_day": 7,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-058",
+    "name": "Sarah Menon",
+    "preferred_region": "east",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-059",
+    "name": "Iskandar Naidu",
+    "preferred_region": "west",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-060",
+    "name": "Arjun Foo",
+    "preferred_region": "west",
+    "max_orders_per_day": 4
+  },
+  {
+    "driver_id": "DRV-061",
+    "name": "Teck Naidu",
+    "preferred_region": "north",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-062",
+    "name": "Ming Yeo",
+    "preferred_region": "south",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-063",
+    "name": "Choon Ong",
+    "preferred_region": "north",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-064",
+    "name": "Keng Chua",
+    "preferred_region": "east",
+    "max_orders_per_day": 5,
+    "capabilities": [
+      "vip",
+      "wedding",
+      "large_events"
+    ]
+  },
+  {
+    "driver_id": "DRV-065",
+    "name": "Anita Singh",
+    "preferred_region": "east",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-066",
+    "name": "Li Ong",
+    "preferred_region": "west",
+    "max_orders_per_day": 6
+  },
+  {
+    "driver_id": "DRV-067",
+    "name": "Suresh Ali",
+    "preferred_region": "east",
+    "max_orders_per_day": 6,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-068",
+    "name": "Hafiz Chan",
+    "preferred_region": "west",
+    "max_orders_per_day": 8,
+    "capabilities": [
+      "corporate",
+      "seminars"
+    ]
+  },
+  {
+    "driver_id": "DRV-069",
+    "name": "Rachel Kumar",
+    "preferred_region": "south",
+    "max_orders_per_day": 5
+  },
+  {
+    "driver_id": "DRV-070",
+    "name": "Deepa Chan",
+    "preferred_region": "south",
+    "max_orders_per_day": 6
+  }
+]
