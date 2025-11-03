@@ -76,13 +76,12 @@ All venues use real Singapore locations with valid postal codes.
 ### Option 1: Run with test data directly
 ```bash
 source venv/bin/activate
-python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/test_scenarios/other_scenarios/drivers.json
+python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/drivers/drivers.json
 ```
 
 ### Option 2: Copy to main data folder
 ```bash
 cp data/test_scenarios/other_scenarios/orders.json data/orders.json
-cp data/test_scenarios/other_scenarios/drivers.json data/drivers.json
 python run_allocation.py
 ```
 

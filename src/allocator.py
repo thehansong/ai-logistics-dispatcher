@@ -114,8 +114,8 @@ class DeliveryAllocator:
 def main():
     """Main entry point"""
     # Default file paths (relative to project root)
-    orders_file = "data/orders.json"
-    drivers_file = "data/drivers.json"
+    orders_file = "data/test_scenarios/original_scenario/orders.json"
+    drivers_file = "data/drivers/drivers.json"
 
     # Allow command line overrides
     if len(sys.argv) > 2:

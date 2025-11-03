@@ -5,7 +5,7 @@ Creates a timestamped output folder for each run.
 
 Usage:
     python run_allocation.py
-    python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/test_scenarios/other_scenarios/drivers.json
+    python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/drivers/drivers.json
 """
 
 import sys
@@ -276,14 +276,14 @@ def main():
     parser.add_argument(
         "--orders",
         type=str,
-        default="data/orders.json",
-        help="Path to orders JSON file (default: data/orders.json)"
+        default="data/test_scenarios/original_scenario/orders.json",
+        help="Path to orders JSON file (default: data/test_scenarios/original_scenario/orders.json)"
     )
     parser.add_argument(
         "--drivers",
         type=str,
-        default="data/drivers.json",
-        help="Path to drivers JSON file (default: data/drivers.json)"
+        default="data/drivers/drivers.json",
+        help="Path to drivers JSON file (default: data/drivers/drivers.json)"
     )
     parser.add_argument(
         "--prompt",

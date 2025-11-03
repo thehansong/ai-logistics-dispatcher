@@ -43,15 +43,19 @@ OPENAI_API_KEY=sk-your-key-here
 
 ### 3. Run the System
 
-**Basic Usage (Default Data)**
+**Basic Usage (uses original scenario by default)**
 ```bash
 source venv/bin/activate
 python run_allocation.py
 ```
 
-**Test with Custom Data**
+**Test with Other Scenarios**
 ```bash
-python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/test_scenarios/other_scenarios/drivers.json
+# Test with the other_scenarios dataset
+python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json
+
+# Or specify both files explicitly
+python run_allocation.py --orders data/test_scenarios/other_scenarios/orders.json --drivers data/drivers/drivers.json
 ```
 
 **Choose Prompt Strategy**
